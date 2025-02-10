@@ -96,7 +96,6 @@
         </div>
     </header>
     <!-- /Header -->
-
     <!-- Burger menu  -->
     <section x-show="mobileMenuOpen" @click.outside="mobileMenuOpen = false"
         class="absolute left-0 right-0 z-50 h-screen w-full bg-white" style="display: none">
@@ -153,8 +152,8 @@
                 </button>
             </form>
             <ul class="text-center font-medium">
-                <li class="py-2"><a href="index.html">Home</a></li>
-                <li class="py-2"><a href="catalog.html">Catalog</a></li>
+                <li class="py-2"><a href="#">Home</a></li>
+                <li class="py-2"><a href="{{ route('all-products') }}">All Products</a></li>
                 <li class="py-2"><a href="about-us.html">About Us</a></li>
                 <li class="py-2"><a href="contact-us.html">Contact Us</a></li>
             </ul>
@@ -164,7 +163,6 @@
 
     <!-- Nav bar -->
     <!-- hidden on small devices -->
-
     <nav class="relative bg-violet-900">
         <div class="mx-auto hidden h-12 w-full max-w-[1200px] items-center md:flex">
             <button @click="desktopMenuOpen = ! desktopMenuOpen"
@@ -182,9 +180,9 @@
 
             <div class="mx-7 flex gap-8">
                 <a class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
-                    href="index.html">Home</a>
+                    href="#">Home</a>
                 <a class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
-                    href="catalog.html">Catalog</a>
+                    href="{{ route('all-products') }}">All Products</a>
                 <a class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
                     href="about-us.html">About
                     Us</a>
@@ -333,10 +331,9 @@
     <!-- /Menu  -->
 
     <!-- Offer image  -->
-
     <div class="relative">
-        <img class="w-full object-cover brightness-50 filter lg:h-[500px]"
-            src="{{ asset('resources/images/header-bg.jpeg') }}" alt="Living room image" />
+        <img class="w-full object-cover brightness-50 filter lg:h-[600px]"
+            src="{{ asset('resources/images/homebg.png') }}" alt="Living room image" />
 
         <div
             class="absolute top-1/2 left-1/2 mx-auto flex w-11/12 max-w-[1200px] -translate-x-1/2 -translate-y-1/2 flex-col text-center text-white lg:ml-5">
@@ -354,12 +351,10 @@
             </button>
         </div>
     </div>
-
     <!-- /Offer image  -->
 
     <!-- Cons bages -->
-
-    <section class="container mx-auto my-8 flex flex-col justify-center gap-3 lg:flex-row">
+    <section class="container mx-auto my-10 flex flex-col justify-center gap-3 lg:flex-row">
         <!-- 1 -->
 
         <div class="mx-5 flex flex-row items-center justify-center border-2 border-yellow-400 py-4 px-5">
@@ -1557,7 +1552,6 @@
     <!-- /Recommendations -->
 
     <!-- Desktop Footer  -->
-
     <footer class="mx-auto w-full max-w-[1200px] justify-between pb-10 flex flex-col lg:flex-row">
         <div class="ml-5">
             <img class="mt-10 mb-5 h-6 w-auto" src="{{ asset('resources/images/dblogo.png') }}" alt="company logo" />
@@ -1580,7 +1574,6 @@
                 </a>
             </div>
         </div>
-
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
             <div class="mx-5 mt-10">
                 <p class="font-medium text-gray-500">FEATURES</p>
@@ -1591,7 +1584,6 @@
                     <li><a href="#">Merchendise</a></li>
                 </ul>
             </div>
-
             <div class="mx-5 mt-10">
                 <p class="font-medium text-gray-500">SUPPORT</p>
                 <ul class="text-sm leading-8">
@@ -1601,7 +1593,6 @@
                     <li><a href="#">Art Status</a></li>
                 </ul>
             </div>
-
             <div class="mx-5 mt-10">
                 <p class="font-medium text-gray-500">DOCUMENTS</p>
                 <ul class="text-sm leading-8">
@@ -1611,7 +1602,6 @@
                     <li><a href="#">License</a></li>
                 </ul>
             </div>
-
             <div class="mx-5 mt-10">
                 <p class="font-medium text-gray-500">DELIVERY</p>
                 <ul class="text-sm leading-8">
@@ -1624,9 +1614,7 @@
         </div>
     </footer>
     <!-- /Desktop Footer  -->
-
     <!-- Payment and copyright  -->
-
     <section class="h-11 bg-amber-400">
         <div class="mx-auto flex max-w-[1200px] items-center justify-between px-4 pt-2">
             <p>&copy; Rakibul Hasan Joy</p>
@@ -1640,9 +1628,7 @@
     <!-- /Payment and copyright  -->
     <script defer src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
     <script src="{{ asset('resources/js/splide.js') }}"></script>
 
 </body>
-
 </html>
