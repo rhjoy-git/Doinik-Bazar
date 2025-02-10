@@ -32,7 +32,7 @@
                 <span class="text-white">&#124;</span>
 
                 <a class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
-                    href="sign-up.html">Sign
+                    href="{{ route('register') }}">Sign
                     Up</a>
             </div>
         </div>
