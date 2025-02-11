@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -17,6 +18,9 @@ Route::get('/', function () {
 Route::get('/products', [ProductController::class, 'index'])->name('products');
 Route::get('/AllProducts', [ProductController::class, 'allProducts'])->name('all-products');
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('product-overview');
+// Route::get('/product/{id}', [ProductController::class, 'overview'])->name('product-overview');
+Route::get('/contact-us', [ContactController::class, 'index'])->name('contact-us');
+Route::post('/contact-us', [ContactController::class, 'submit'])->name('contact.submit');
 
 
 Route::get('/wishlist', function () {

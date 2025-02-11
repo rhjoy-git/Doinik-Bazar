@@ -56,7 +56,7 @@
             <div class="flex gap-1">
                 @foreach(json_decode($product->sizes) as $size)
                 <div
-                    class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
+                    class="flex h-8 w-auto px-2 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
                     {{ $size }}
                 </div>
                 @endforeach

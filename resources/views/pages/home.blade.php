@@ -65,93 +65,7 @@
 <!-- /Cons bages  -->
 
 <!-- Cathegories -->
-<h2 class="mx-auto mb-5 max-w-[1200px] px-5">SHOP BY CATHEGORY</h2>
-<section class="mx-auto grid max-w-[1200px] grid-cols-2 px-5 lg:grid-cols-3 lg:gap-5">
-    <!-- 1 -->
-
-    <a href="#">
-        <div class="relative cursor-pointer">
-            <img class="mx-auto h-auto w-auto brightness-50 duration-300 hover:brightness-100"
-                src="{{ asset('resources/images/bedroom.png') }}" alt="bedroom cathegory image" />
-
-            <p
-                class="pointer-events-none absolute top-1/2 left-1/2 w-11/12 -translate-x-1/2 -translate-y-1/2 text-center text-white lg:text-xl">
-                Bedroom
-            </p>
-        </div>
-    </a>
-
-    <!-- 2 -->
-
-    <a href="#">
-        <div class="relative cursor-pointer">
-            <img class="mx-auto h-auto w-auto brightness-50 duration-300 hover:brightness-100"
-                src="{{ asset('resources/images/matrass.png') }}" alt="Matrass cathegory image" />
-
-            <p
-                class="pointer-events-none absolute top-1/2 left-1/2 w-11/12 -translate-x-1/2 -translate-y-1/2 text-center text-white lg:text-xl">
-                Matrass
-            </p>
-        </div>
-    </a>
-
-    <!-- 3  -->
-
-    <a href="#">
-        <div class="relative cursor-pointer">
-            <img class="mx-auto h-auto w-auto brightness-50 duration-300 hover:brightness-100"
-                src="{{ asset('resources/images/outdoors.png') }}" alt="kitchen cathegory image" />
-
-            <p
-                class="pointer-events-none absolute top-1/2 left-1/2 w-11/12 -translate-x-1/2 -translate-y-1/2 text-center text-white lg:text-xl">
-                Outdoor
-            </p>
-        </div>
-    </a>
-
-    <!-- 4 -->
-
-    <a href="#">
-        <div class="relative cursor-pointer">
-            <img class="mx-auto h-auto w-auto brightness-50 duration-300 hover:brightness-100"
-                src="{{ asset('resources/images/product-bigsofa.png') }}" alt="bedroom cathegory image" />
-
-            <p
-                class="pointer-events-none absolute top-1/2 left-1/2 w-11/12 -translate-x-1/2 -translate-y-1/2 text-center text-white lg:text-xl">
-                Sofa
-            </p>
-        </div>
-    </a>
-
-    <!-- 5  -->
-
-    <a href="#">
-        <div class="relative cursor-pointer">
-            <img class="mx-auto h-auto w-auto brightness-50 duration-300 hover:brightness-100"
-                src="{{ asset('resources/images/kitchen.png') }}" alt="bedroom cathegory image" />
-
-            <p
-                class="pointer-events-none absolute top-1/2 left-1/2 w-11/12 -translate-x-1/2 -translate-y-1/2 text-center text-white lg:text-xl">
-                Kitchen
-            </p>
-        </div>
-    </a>
-
-    <!-- 6 -->
-
-    <a href="#">
-        <div class="relative cursor-pointer">
-            <img class="mx-auto h-auto w-auto brightness-50 duration-300 hover:brightness-100"
-                src="{{ asset('resources/images/living-room.png') }}" alt="bedroom cathegory image" />
-
-            <p
-                class="pointer-events-none absolute top-1/2 left-1/2 w-11/12 -translate-x-1/2 -translate-y-1/2 text-center text-white lg:text-xl">
-                Living room
-            </p>
-        </div>
-    </a>
-
-</section>
+@include('partials.products-categories')
 <!-- /Cathegories  -->
 
 <!-- /Slider  -->
@@ -159,24 +73,7 @@
 <!-- Slider  -->
 @include('partials.new-arrival-slider')
 <!-- Special offer card -->
-<div class="mx-auto max-w-[1200px] px-5 mb-10">
-    <section class="mt-10 flex max-w-[1200px] justify-between bg-violet-900 px-5">
-        <div class="py-8 px-3 lg:px-16">
-            <p class="text-white">ONLINE EXCLUSIVE</p>
-            <h2 class="pt-6 text-5xl font-bold text-yellow-400">15% OFF</h2>
-            <p class="pt-4 text-white">
-                ACCENT CHAIRS, <br />
-                TABLES & OTTOMANS
-            </p>
-            <button href="#" class="mt-6 bg-amber-400 px-4 py-2 duration-100 hover:bg-yellow-300">
-                Shop now
-            </button>
-        </div>
-
-        <img class="-mr-5 hidden w-[550px] object-cover md:block" src="{{ asset('resources/images/sale-bage.jpeg') }}"
-            alt="Rainbow credit card with macbook on a background" />
-    </section>
-</div>
+@includeIf('partials.offers-section')
 <!-- /Special offer card -->
 
 <!-- Products -->

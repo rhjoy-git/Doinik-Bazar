@@ -23,5 +23,6 @@ class Product extends Model
         'colors',
         'material',
         'weight',
+        'is_new_arrival',
     ];
 }
