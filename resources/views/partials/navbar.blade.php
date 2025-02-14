@@ -19,10 +19,10 @@
                 <a class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
                     href="{{ route('all-products') }}">All Products</a>
                 <a class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
-                    href="about-us.html">About
+                    href="{{ route('about-us') }}">About
                     Us</a>
                 <a class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
-                    href="contact-us.html">Contact Us</a>
+                    href="{{ route('contact-us') }}">Contact Us</a>
             </div>
 
             <div class="ml-auto flex gap-4 px-5">

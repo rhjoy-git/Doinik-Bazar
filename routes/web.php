@@ -22,6 +22,9 @@ Route::get('/products/{id}', [ProductController::class, 'show'])->name('product-
 Route::get('/contact-us', [ContactController::class, 'index'])->name('contact-us');
 Route::post('/contact-us', [ContactController::class, 'submit'])->name('contact.submit');
 
+Route::get('/about-us', function () {
+    return view('pages.about-us');
+})->name('about-us');
 
 Route::get('/wishlist', function () {
     return view('pages.wishlist');
@@ -32,13 +35,21 @@ Route::get('/cart', function () {
 })->name('cart');
 Route::get('/account', function () {
     return view('pages.account');
-})->name('account');
+})->name('user');
 
 Route::get('/login', function(){
     return view('pages.login');
 })->name('login');
 
-
+Route::get('/checkout/address', function(){
+    return view('partials.checkout-address');
+})->name('checkout');
+Route::get('/checkout/delivery', function(){
+    return view('partials.checkout-delivery');
+})->name('checkout.delivery');
+Route::get('/checkout/payment', function(){
+    return view('partials.checkout-payment');
+})->name('checkout.payment');
 
 
 Route::get('/dashboard', function () {

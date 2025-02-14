@@ -1,10 +1,8 @@
 @extends('layouts.masterlayout')
 
 @section('content')
-@section('breadcrumbs')
-{{ $product->name }}
-@endsection
-@include('partials.breadcrumbs')
+{{-- breadcrumbs --}}
+<x-breadcrumbs :message="$product->name" />
 <section class="container flex-grow mx-auto max-w-[1200px] border-b py-5 lg:grid lg:grid-cols-2 lg:py-10">
     <!-- Image Gallery -->
     <div class="container mx-auto px-4">
@@ -136,5 +134,7 @@
             </tr>
         </tbody>
     </table>
+
 </section>
+@include('partials.related-products')
 @endsection
