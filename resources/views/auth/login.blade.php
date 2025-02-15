@@ -1,6 +1,12 @@
 @extends('layouts.masterlayout')
 
 @section('content')
+@if(session('info'))
+    <div class="bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded relative mb-4" role="alert">
+        <span class="block sm:inline">{{ session('info') }}</span>
+    </div>
+@endif
+
 <!-- Login card  -->
 <section class="mx-auto flex-grow w-full mt-10 mb-10 max-w-[1200px] px-5">
     <div class="container mx-auto border px-5 py-5 shadow-sm md:w-1/2">
@@ -12,13 +18,13 @@
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
 
-        <form method="POST" action="{{ route('login') }}" class="mt-6 flex flex-col">
+        <form method="POST" action="{{ route('login.submit') }}" class="mt-6 flex flex-col">
             @csrf
 
             <!-- Email -->
             <div>
                 <label for="email">Email</label>
-                <input id="email" class="w-full mb-3 mt-3 border px-4 py-2" type="email" name="email"
+                <input id="email" class="w-full mb-3 mt-3 border px-4 py-2" type="email" name="email" value="{{ old('email') }}"
                     placeholder="youremail@domain.com" :value="old('email')" required autofocus autocomplete="email" />
                 <x-input-error :messages="$errors->get('email')" class="mt-2" />
             </div>

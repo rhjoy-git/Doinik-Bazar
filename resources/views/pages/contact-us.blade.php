@@ -100,7 +100,7 @@
             popup.classList.add('hidden');
             popup.classList.remove('flex');
 
-        }, 10000);
+        }, 3000);
     }
 
     @if(session('success'))

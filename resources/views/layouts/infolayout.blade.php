@@ -3,18 +3,18 @@
 @section('content')
 {{-- breadcrumbs --}}
 @yield('breadcrumbs')
-
-<section class="container flex-grow mx-auto max-w-[1200px] border-b py-5 lg:flex lg:flex-row lg:py-10">
+@if (auth()->check())
+ <section class="container flex-grow mx-auto max-w-[1200px] border-b py-5 lg:flex lg:flex-row lg:py-10">
 
     <!-- sidebar  -->
     <section class="hidden flex-shrink-0 px-4 lg:block">
         <div class="border-b py-5">
             <div class="flex items-center">
                 <img width="40px" height="40px" class="rounded-full object-cover"
-                    src="{{ asset('resources/images/myavatar.jpg') }}" alt="Red woman portrait" />
+                    src="{{ asset('resources/images/myavatar.jpg') }}" alt="User Avatar" />
                 <div class="ml-5">
                     <p class="font-medium text-gray-500">Hello,</p>
-                    <p class="font-bold">Rakibul Hasan Joy</p>
+                    <p class="font-bold">{{ $user->first_name }} {{ $user->last_name }}</p>
                 </div>
             </div>
         </div>
@@ -76,7 +76,8 @@
         <div class="flex border-b py-5">
             <div class="flex w-full">
                 <div class="flex flex-col gap-2">
-                    <a href="{{ route('wishlist') }}" class="flex items-center gap-2 font-medium text-violet-900">
+                    <a href="{{ route('user.wishlist') }}"
+                        class="flex items-center gap-2 font-medium active:text-violet-900">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="h-5 w-5">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -91,19 +92,27 @@
         <div class="flex py-5">
             <div class="flex w-full">
                 <div class="flex flex-col gap-2">
-                    <a href="#" class="flex items-center gap-2 font-medium active:text-violet-900">
+                    <!-- Logout Form -->
+                    <!-- Logout Form -->
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                        class="flex items-center gap-2 font-bold text-red-500">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                             stroke="currentColor" class="h-5 w-5">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
                         </svg>
-
                         Log Out</a>
                 </div>
             </div>
         </div>
     </section>
     <!-- /sidebar  -->
+    {{-- main content --}}
     @yield('info-content')
-</section>
+</section>   
+@endif
+
 @endsection
