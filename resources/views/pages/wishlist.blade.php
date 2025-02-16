@@ -183,7 +183,7 @@
 <!-- /Mobile product cards  -->
 
 <!-- Desktop product cards  -->
-<section class="hidden w-full max-w-[1200px] grid-cols-1 gap-8 px-5 pb-10 md:grid">
+<section class="hidden w-full max-w-screen-xl grid-cols-1 gap-8 px-5 pb-10 md:grid">
     <!-- 1 -->
     <div class="flex w-full flex-row h-44 items-center justify-between border py-5 px-4">
         <div class="flex w-full items-center gap-4">

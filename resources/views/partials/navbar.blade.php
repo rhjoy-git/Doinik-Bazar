@@ -1,7 +1,7 @@
 <!-- Nav bar -->
 <!-- hidden on small devices -->
 <nav class="relative bg-violet-900">
-    <div class="mx-auto hidden h-12 w-full max-w-[1200px] items-center md:flex">
+    <div class="mx-auto hidden h-12 w-full max-w-screen-xl items-center md:flex">
         <button @click="desktopMenuOpen = !desktopMenuOpen"
             class="ml-5 flex h-full w-40 cursor-pointer items-center justify-center bg-amber-400">
             <div class="flex justify-around" href="#">
@@ -54,7 +54,7 @@
 <!-- Menu  -->
 <section x-show="desktopMenuOpen" @click.outside="desktopMenuOpen = false"
     class="absolute left-0 right-0 z-10 w-full border-b border-r border-l bg-white" style="display: none">
-    <div class="mx-auto flex max-w-[1200px] py-10">
+    <div class="mx-auto flex max-w-screen-xl py-10">
         <div class="w-[300px] border-r">
             <ul class="px-5">
                 <li class="active:blue-900 flex items-center gap-2 bg-amber-400 py-2 px-3 active:bg-amber-400">

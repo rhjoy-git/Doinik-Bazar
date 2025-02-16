@@ -1,6 +1,6 @@
 <!-- Special offer card -->
-<div class="mx-auto max-w-[1200px] px-5 mb-10">
-    <section class="mt-10 flex max-w-[1200px] justify-between bg-violet-900 px-5">
+<div class="mx-auto max-w-screen-xl px-5 mb-10">
+    <section class="mt-10 flex max-w-screen-xl justify-between bg-violet-900 px-5">
         <div class="py-8 px-3 lg:px-16">
             <p class="text-white">ONLINE EXCLUSIVE</p>
             <h2 class="pt-6 text-5xl font-bold text-yellow-400">15% OFF</h2>

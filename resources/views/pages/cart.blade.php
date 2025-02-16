@@ -6,380 +6,358 @@
 {{-- breadcrumbs --}}
 <x-breadcrumbs message="Cart" />
 
-<section class="container mx-auto flex-grow max-w-[1200px] border-b py-5 lg:flex lg:flex-row lg:py-10">
-    <!-- Mobile cart table  -->
-    <section class="container mx-auto my-3 flex w-full flex-col gap-3 px-4 md:hidden">
-        <!-- 1 -->
+<section class="bg-white py-8 antialiased md:py-16">
+    <div class="mx-auto max-w-screen-xl px-4 2xl:px-0">
+        <h2 class="text-xl font-semibold text-gray-900  sm:text-2xl">Shopping Cart</h2>
+        <div class="mt-6 sm:mt-8 md:gap-6 lg:flex lg:items-start xl:gap-8">
+            <div class="mx-auto w-full flex-none lg:max-w-2xl xl:max-w-4xl">
+                <div class="space-y-6">
+                    <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm  md:p-6">
+                        <div class="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
+                            <a href="#" class="shrink-0 md:order-1">
+                                <img class="h-20 w-20 " src="{{ asset('resources/images/product-chair.png') }}"
+                                    alt="imac image" />
 
-        <div class="flex w-full border px-4 py-4">
-            <img class="self-start object-contain" width="90px" src="{{asset('resources/images/bedroom.png')}}"
-                alt="bedroom image" />
-            <div class="ml-3 flex w-full flex-col justify-center">
-                <div class="flex items-center justify-between">
-                    <p class="text-xl font-bold">ITALIAN BED</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
-                        <path
-                            d="M10 3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM10 8.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM11.5 15.5a1.5 1.5 0 10-3 0 1.5 1.5 0 003 0z" />
-                    </svg>
-                </div>
-                <p class="text-sm text-gray-400">Size: XL</p>
-                <p class="py-3 text-xl font-bold text-violet-900">$320</p>
-                <div class="mt-2 flex w-full items-center justify-between">
-                    <div class="flex items-center justify-center">
-                        <button
-                            class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
-                            &minus;
-                        </button>
-                        <div
-                            class="flex h-8 w-8 cursor-text items-center justify-center border-t border-b active:ring-gray-500">
-                            1
+                            </a>
+
+                            <label for="counter-input" class="sr-only">Choose quantity:</label>
+                            <div class="flex items-center justify-between md:order-3 md:justify-end">
+                                <div class="flex items-center">
+                                    <button type="button" id="decrement-button"
+                                        data-input-counter-decrement="counter-input"
+                                        class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 ">
+                                        <svg class="h-2.5 w-2.5 text-gray-900 " aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="M1 1h16" />
+                                        </svg>
+                                    </button>
+                                    <input type="text" id="counter-input" data-input-counter
+                                        class="w-10 shrink-0 border-0 bg-transparent text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0 "
+                                        placeholder="" value="2" required />
+                                    <button type="button" id="increment-button"
+                                        data-input-counter-increment="counter-input"
+                                        class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 ">
+                                        <svg class="h-2.5 w-2.5 text-gray-900 " aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="M9 1v16M1 9h16" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="text-end md:order-4 md:w-32">
+                                    <p class="text-base font-bold text-gray-900 ">$1,499</p>
+                                </div>
+                            </div>
+
+                            <div class="w-full min-w-0 flex-1 space-y-4 md:order-2 md:max-w-md">
+                                <a href="#" class="text-base font-medium text-gray-900  ">PC
+                                    system All in One APPLE iMac (2023) mqrq3ro/a, Apple M3, 24" Retina 4.5K, 8GB, SSD
+                                    256GB, 10-core GPU, Keyboard layout INT</a>
+
+                                <div class="flex items-center gap-4">
+                                    <button type="button"
+                                        class="inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-900  ">
+                                        <svg class="me-1.5 h-5 w-5" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                            viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z" />
+                                        </svg>
+                                        Add to Favorites
+                                    </button>
+
+                                    <button type="button"
+                                        class="inline-flex items-center text-sm font-medium text-red-600  ">
+                                        <svg class="me-1.5 h-5 w-5" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                            viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6" />
+                                        </svg>
+                                        Remove
+                                    </button>
+                                </div>
+                            </div>
                         </div>
-                        <button
-                            class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
-                            &#43;
-                        </button>
+                    </div>
+                    <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm  md:p-6">
+                        <div class="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
+                            <a href="#" class="shrink-0 md:order-1">
+                                <img class="h-20 w-20 " src="{{ asset('resources/images/bedroom.png') }}"
+                                    alt="imac image" />
+                            </a>
+
+                            <label for="counter-input" class="sr-only">Choose quantity:</label>
+                            <div class="flex items-center justify-between md:order-3 md:justify-end">
+                                <div class="flex items-center">
+                                    <button type="button" id="decrement-button-2"
+                                        data-input-counter-decrement="counter-input-2"
+                                        class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 ">
+                                        <svg class="h-2.5 w-2.5 text-gray-900 " aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="M1 1h16" />
+                                        </svg>
+                                    </button>
+                                    <input type="text" id="counter-input-2" data-input-counter
+                                        class="w-10 shrink-0 border-0 bg-transparent text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0 "
+                                        placeholder="" value="1" required />
+                                    <button type="button" id="increment-button-2"
+                                        data-input-counter-increment="counter-input-2"
+                                        class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 ">
+                                        <svg class="h-2.5 w-2.5 text-gray-900 " aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="M9 1v16M1 9h16" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="text-end md:order-4 md:w-32">
+                                    <p class="text-base font-bold text-gray-900 ">$598</p>
+                                </div>
+                            </div>
+
+                            <div class="w-full min-w-0 flex-1 space-y-4 md:order-2 md:max-w-md">
+                                <a href="#" class="text-base font-medium text-gray-900  ">Restored
+                                    Apple Watch Series 8 (GPS) 41mm Midnight Aluminum Case with Midnight Sport Band</a>
+
+                                <div class="flex items-center gap-4">
+                                    <button type="button"
+                                        class="inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-900  ">
+                                        <svg class="me-1.5 h-5 w-5" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                            viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z" />
+                                        </svg>
+                                        Add to Favorites
+                                    </button>
+
+                                    <button type="button"
+                                        class="inline-flex items-center text-sm font-medium text-red-600  ">
+                                        <svg class="me-1.5 h-5 w-5" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                            viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6" />
+                                        </svg>
+                                        Remove
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm  md:p-6">
+                        <div class="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
+                            <a href="#" class="shrink-0 md:order-1">
+                                <img class="h-20 w-20 " src="{{ asset('resources/images/bedroom.png') }}"
+                                    alt="imac image" />
+                            </a>
+
+                            <label for="counter-input" class="sr-only">Choose quantity:</label>
+                            <div class="flex items-center justify-between md:order-3 md:justify-end">
+                                <div class="flex items-center">
+                                    <button type="button" id="decrement-button-2"
+                                        data-input-counter-decrement="counter-input-2"
+                                        class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 ">
+                                        <svg class="h-2.5 w-2.5 text-gray-900 " aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="M1 1h16" />
+                                        </svg>
+                                    </button>
+                                    <input type="text" id="counter-input-2" data-input-counter
+                                        class="w-10 shrink-0 border-0 bg-transparent text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0 "
+                                        placeholder="" value="1" required />
+                                    <button type="button" id="increment-button-2"
+                                        data-input-counter-increment="counter-input-2"
+                                        class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 ">
+                                        <svg class="h-2.5 w-2.5 text-gray-900 " aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="M9 1v16M1 9h16" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="text-end md:order-4 md:w-32">
+                                    <p class="text-base font-bold text-gray-900 ">$598</p>
+                                </div>
+                            </div>
+
+                            <div class="w-full min-w-0 flex-1 space-y-4 md:order-2 md:max-w-md">
+                                <a href="#" class="text-base font-medium text-gray-900  ">Restored
+                                    Apple Watch Series 8 (GPS) 41mm Midnight Aluminum Case with Midnight Sport Band</a>
+
+                                <div class="flex items-center gap-4">
+                                    <button type="button"
+                                        class="inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-900  ">
+                                        <svg class="me-1.5 h-5 w-5" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                            viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z" />
+                                        </svg>
+                                        Add to Favorites
+                                    </button>
+
+                                    <button type="button"
+                                        class="inline-flex items-center text-sm font-medium text-red-600  ">
+                                        <svg class="me-1.5 h-5 w-5" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                            viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6" />
+                                        </svg>
+                                        Remove
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm  md:p-6">
+                        <div class="space-y-4 md:flex md:items-center md:justify-between md:gap-6 md:space-y-0">
+                            <a href="#" class="shrink-0 md:order-1">
+                                <img class="h-20 w-20 " src="{{ asset('resources/images/bedroom.png') }}"
+                                    alt="imac image" />
+                            </a>
+
+                            <label for="counter-input" class="sr-only">Choose quantity:</label>
+                            <div class="flex items-center justify-between md:order-3 md:justify-end">
+                                <div class="flex items-center">
+                                    <button type="button" id="decrement-button-2"
+                                        data-input-counter-decrement="counter-input-2"
+                                        class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 ">
+                                        <svg class="h-2.5 w-2.5 text-gray-900 " aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="M1 1h16" />
+                                        </svg>
+                                    </button>
+                                    <input type="text" id="counter-input-2" data-input-counter
+                                        class="w-10 shrink-0 border-0 bg-transparent text-center text-sm font-medium text-gray-900 focus:outline-none focus:ring-0 "
+                                        placeholder="" value="1" required />
+                                    <button type="button" id="increment-button-2"
+                                        data-input-counter-increment="counter-input-2"
+                                        class="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-gray-300 bg-gray-100 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-100 ">
+                                        <svg class="h-2.5 w-2.5 text-gray-900 " aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="M9 1v16M1 9h16" />
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="text-end md:order-4 md:w-32">
+                                    <p class="text-base font-bold text-gray-900 ">$598</p>
+                                </div>
+                            </div>
+
+                            <div class="w-full min-w-0 flex-1 space-y-4 md:order-2 md:max-w-md">
+                                <a href="#" class="text-base font-medium text-gray-900  ">Restored
+                                    Apple Watch Series 8 (GPS) 41mm Midnight Aluminum Case with Midnight Sport Band</a>
+
+                                <div class="flex items-center gap-4">
+                                    <button type="button"
+                                        class="inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-900  ">
+                                        <svg class="me-1.5 h-5 w-5" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                            viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M12.01 6.001C6.5 1 1 8 5.782 13.001L12.011 20l6.23-7C23 8 17.5 1 12.01 6.002Z" />
+                                        </svg>
+                                        Add to Favorites
+                                    </button>
+
+                                    <button type="button"
+                                        class="inline-flex items-center text-sm font-medium text-red-600  ">
+                                        <svg class="me-1.5 h-5 w-5" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                                            viewBox="0 0 24 24">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6" />
+                                        </svg>
+                                        Remove
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {{-- Peoble Also Brought --}}
+            </div>
+            <div class="mx-auto mt-6 max-w-4xl flex-1 space-y-6 lg:mt-0 lg:w-full">
+                <div class="space-y-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm  sm:p-6">
+                    <p class="text-xl font-semibold text-gray-900 ">Order summary</p>
+
+                    <div class="space-y-4">
+                        <div class="space-y-2">
+                            <dl class="flex items-center justify-between gap-4">
+                                <dt class="text-base font-normal text-gray-500 ">Original price</dt>
+                                <dd class="text-base font-medium text-gray-900 ">$7,592.00</dd>
+                            </dl>
+
+                            <dl class="flex items-center justify-between gap-4">
+                                <dt class="text-base font-normal text-gray-500 ">Savings</dt>
+                                <dd class="text-base font-medium text-green-600">-$299.00</dd>
+                            </dl>
+
+                            <dl class="flex items-center justify-between gap-4">
+                                <dt class="text-base font-normal text-gray-500 ">Store Pickup</dt>
+                                <dd class="text-base font-medium text-gray-900 ">$99</dd>
+                            </dl>
+
+                            <dl class="flex items-center justify-between gap-4">
+                                <dt class="text-base font-normal text-gray-500 ">Tax</dt>
+                                <dd class="text-base font-medium text-gray-900 ">$799</dd>
+                            </dl>
+                        </div>
+
+                        <dl class="flex items-center justify-between gap-4 border-t border-gray-200 pt-2 ">
+                            <dt class="text-base font-bold text-gray-900 ">Total</dt>
+                            <dd class="text-base font-bold text-gray-900 ">$8,191.00</dd>
+                        </dl>
                     </div>
 
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                        class="m-0 h-5 w-5 cursor-pointer">
-                        <path fill-rule="evenodd"
-                            d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z"
-                            clip-rule="evenodd" />
-                    </svg>
-                </div>
-            </div>
-        </div>
+                    <a href="{{ route('checkout') }}"
+                        class="flex w-full items-center justify-center rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 text-white">Proceed
+                        to Checkout</a>
 
-        <!-- 2 -->
-
-        <div class="flex w-full border px-4 py-4">
-            <img class="self-start object-contain" width="90px" src="{{asset('resources/images/product-chair.png')}}"
-                alt="Chair image" />
-            <div class="ml-3 flex w-full flex-col justify-center">
-                <div class="flex items-center justify-between">
-                    <p class="text-xl font-bold">GUYER CHAIR</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
-                        <path
-                            d="M10 3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM10 8.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM11.5 15.5a1.5 1.5 0 10-3 0 1.5 1.5 0 003 0z" />
-                    </svg>
-                </div>
-                <p class="text-sm text-gray-400">Size: XL</p>
-                <p class="py-3 text-xl font-bold text-violet-900">$320</p>
-                <div class="mt-2 flex w-full items-center justify-between">
-                    <div class="flex items-center justify-center">
-                        <button
-                            class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
-                            &minus;
-                        </button>
-                        <div
-                            class="flex h-8 w-8 cursor-text items-center justify-center border-t border-b active:ring-gray-500">
-                            1
-                        </div>
-                        <button
-                            class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
-                            &#43;
-                        </button>
+                    <div class="flex items-center justify-center gap-2">
+                        <span class="text-sm font-normal text-gray-500 "> or </span>
+                        <a href="{{ route('all-products') }}" title=""
+                            class="inline-flex items-center gap-2 text-sm font-medium text-blue-700 underline hover:no-underline ">
+                            Continue Shopping
+                            <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                viewBox="0 0 24 24">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" d="M19 12H5m14 0-4 4m4-4-4-4" />
+                            </svg>
+                        </a>
                     </div>
-
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                        class="m-0 h-5 w-5 cursor-pointer">
-                        <path fill-rule="evenodd"
-                            d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z"
-                            clip-rule="evenodd" />
-                    </svg>
+                </div>
+                <div class="space-y-4 rounded-lg border border-gray-200 bg-white p-4 shadow-sm  sm:p-6">
+                    <form class="space-y-4">
+                        <div>
+                            <label for="voucher" class="mb-2 block text-sm font-medium text-gray-900 ">
+                                Do you have a voucher or gift card? </label>
+                            <input type="text" id="voucher"
+                                class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+                                placeholder="" required />
+                        </div>
+                        <button type="submit"
+                            class="flex w-full items-center justify-center rounded-lg bg-blue-700 px-5 py-2.5 text-sm font-medium hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 text-white">Apply
+                            Code</button>
+                    </form>
                 </div>
             </div>
         </div>
-
-        <!-- 3 -->
-
-        <div class="flex w-full border px-4 py-4">
-            <img class="self-start object-contain" width="90px" src="{{asset('resources/images/outdoors.png')}}"
-                alt="Outdoor chair image" />
-            <div class="ml-3 flex w-full flex-col justify-center">
-                <div class="flex items-center justify-between">
-                    <p class="text-xl font-bold">OUTDOOR CHAIR</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
-                        <path
-                            d="M10 3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM10 8.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM11.5 15.5a1.5 1.5 0 10-3 0 1.5 1.5 0 003 0z" />
-                    </svg>
-                </div>
-                <p class="text-sm text-gray-400">Size: XL</p>
-                <p class="py-3 text-xl font-bold text-violet-900">$320</p>
-                <div class="mt-2 flex w-full items-center justify-between">
-                    <div class="flex items-center justify-center">
-                        <button
-                            class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
-                            &minus;
-                        </button>
-                        <div
-                            class="flex h-8 w-8 cursor-text items-center justify-center border-t border-b active:ring-gray-500">
-                            1
-                        </div>
-                        <button
-                            class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
-                            &#43;
-                        </button>
-                    </div>
-
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                        class="m-0 h-5 w-5 cursor-pointer">
-                        <path fill-rule="evenodd"
-                            d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z"
-                            clip-rule="evenodd" />
-                    </svg>
-                </div>
-            </div>
-        </div>
-
-        <!-- 4 -->
-
-        <div class="flex w-full border px-4 py-4">
-            <img class="self-start object-contain" width="90px" src="{{asset('resources/images/matrass.png')}}" alt="Matrass image" />
-            <div class="ml-3 flex w-full flex-col justify-center">
-                <div class="flex items-center justify-between">
-                    <p class="text-xl font-bold">MATRASS COMFORT &plus;</p>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
-                        <path
-                            d="M10 3a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM10 8.5a1.5 1.5 0 110 3 1.5 1.5 0 010-3zM11.5 15.5a1.5 1.5 0 10-3 0 1.5 1.5 0 003 0z" />
-                    </svg>
-                </div>
-                <p class="text-sm text-gray-400">Size: XL</p>
-                <p class="py-3 text-xl font-bold text-violet-900">$320</p>
-                <div class="mt-2 flex w-full items-center justify-between">
-                    <div class="flex items-center justify-center">
-                        <button
-                            class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
-                            &minus;
-                        </button>
-                        <div
-                            class="flex h-8 w-8 cursor-text items-center justify-center border-t border-b active:ring-gray-500">
-                            1
-                        </div>
-                        <button
-                            class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
-                            &#43;
-                        </button>
-                    </div>
-
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                        class="m-0 h-5 w-5 cursor-pointer">
-                        <path fill-rule="evenodd"
-                            d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z"
-                            clip-rule="evenodd" />
-                    </svg>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- /Mobile cart table  -->
-
-    <!-- Desktop cart table  -->
-    <section class="hidden h-[600px] w-full max-w-[1200px] grid-cols-1 gap-3 px-5 pb-10 md:grid">
-        <table class="table-fixed">
-            <thead class="h-16 bg-neutral-100">
-                <tr>
-                    <th>ITEM</th>
-                    <th>PRICE</th>
-                    <th>QUANTITY</th>
-                    <th>TOTAL</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- 1 -->
-
-                <tr class="h-[100px] border-b">
-                    <td class="align-middle">
-                        <div class="flex">
-                            <img class="w-[90px]" src="{{asset('resources/images/bedroom.png')}}" alt="bedroom image" />
-                            <div class="ml-3 flex flex-col justify-center">
-                                <p class="text-xl font-bold">ITALIAN BED</p>
-                                <p class="text-sm text-gray-400">Size: XL</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="mx-auto text-center">&#36;320</td>
-                    <td class="align-middle">
-                        <div class="flex items-center justify-center">
-                            <button
-                                class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
-                                &minus;
-                            </button>
-                            <div
-                                class="flex h-8 w-8 cursor-text items-center justify-center border-t border-b active:ring-gray-500">
-                                1
-                            </div>
-                            <button
-                                class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
-                                &#43;
-                            </button>
-                        </div>
-                    </td>
-                    <td class="mx-auto text-center">&#36;320</td>
-                    <td class="align-middle">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                            class="m-0 h-5 w-5 cursor-pointer">
-                            <path fill-rule="evenodd"
-                                d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </td>
-                </tr>
-
-                <!-- 2 -->
-
-                <tr class="h-[100px] border-b">
-                    <td class="align-middle">
-                        <div class="flex">
-                            <img class="w-[90px]" src="{{asset('resources/images/product-chair.png')}}" alt="Chair Image" />
-                            <div class="ml-3 flex flex-col justify-center">
-                                <p class="text-xl font-bold">GUYER CHAIR</p>
-                                <p class="text-sm text-gray-400">Size: XL</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="mx-auto text-center">&#36;320</td>
-                    <td class="align-middle">
-                        <div class="flex items-center justify-center">
-                            <button
-                                class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
-                                &minus;
-                            </button>
-                            <div
-                                class="flex h-8 w-8 cursor-text items-center justify-center border-t border-b active:ring-gray-500">
-                                1
-                            </div>
-                            <button
-                                class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
-                                &#43;
-                            </button>
-                        </div>
-                    </td>
-                    <td class="mx-auto text-center">&#36;320</td>
-                    <td class="align-middle">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                            class="m-0 h-5 w-5 cursor-pointer">
-                            <path fill-rule="evenodd"
-                                d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </td>
-                </tr>
-
-                <!-- 3 -->
-
-                <tr class="h-[100px] border-b">
-                    <td class="align-middle">
-                        <div class="flex">
-                            <img class="w-[90px]" src="{{asset('resources/images/outdoors.png')}}" alt="Outdoor furniture" />
-                            <div class="ml-3 flex flex-col justify-center">
-                                <p class="text-xl font-bold">OUTDOOR CHAIR</p>
-                                <p class="text-sm text-gray-400">Size: XL</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="mx-auto text-center">&#36;320</td>
-                    <td class="align-middle">
-                        <div class="flex items-center justify-center">
-                            <button
-                                class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
-                                &minus;
-                            </button>
-                            <div
-                                class="flex h-8 w-8 cursor-text items-center justify-center border-t border-b active:ring-gray-500">
-                                1
-                            </div>
-                            <button
-                                class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
-                                &#43;
-                            </button>
-                        </div>
-                    </td>
-                    <td class="mx-auto text-center">&#36;320</td>
-                    <td class="align-middle">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                            class="m-0 h-5 w-5 cursor-pointer">
-                            <path fill-rule="evenodd"
-                                d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </td>
-                </tr>
-
-                <!-- 4 -->
-
-                <tr class="h-[100px]">
-                    <td class="align-middle">
-                        <div class="flex">
-                            <img class="w-[90px]" src="{{asset('resources/images/matrass.png')}}" alt="Matrass Image" />
-                            <div class="ml-3 flex flex-col justify-center">
-                                <p class="text-xl font-bold">MATRASS COMFORT &plus;</p>
-                                <p class="text-sm text-gray-400">Size: XL</p>
-                            </div>
-                        </div>
-                    </td>
-                    <td class="mx-auto text-center">&#36;320</td>
-                    <td class="align-middle">
-                        <div class="flex items-center justify-center">
-                            <button
-                                class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
-                                &minus;
-                            </button>
-                            <div
-                                class="flex h-8 w-8 cursor-text items-center justify-center border-t border-b active:ring-gray-500">
-                                1
-                            </div>
-                            <button
-                                class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
-                                &#43;
-                            </button>
-                        </div>
-                    </td>
-                    <td class="mx-auto text-center">&#36;320</td>
-                    <td class="align-middle">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                            class="m-0 h-5 w-5 cursor-pointer">
-                            <path fill-rule="evenodd"
-                                d="M8.75 1A2.75 2.75 0 006 3.75v.443c-.795.077-1.584.176-2.365.298a.75.75 0 10.23 1.482l.149-.022.841 10.518A2.75 2.75 0 007.596 19h4.807a2.75 2.75 0 002.742-2.53l.841-10.52.149.023a.75.75 0 00.23-1.482A41.03 41.03 0 0014 4.193V3.75A2.75 2.75 0 0011.25 1h-2.5zM10 4c.84 0 1.673.025 2.5.075V3.75c0-.69-.56-1.25-1.25-1.25h-2.5c-.69 0-1.25.56-1.25 1.25v.325C8.327 4.025 9.16 4 10 4zM8.58 7.72a.75.75 0 00-1.5.06l.3 7.5a.75.75 0 101.5-.06l-.3-7.5zm4.34.06a.75.75 0 10-1.5-.06l-.3 7.5a.75.75 0 101.5.06l.3-7.5z"
-                                clip-rule="evenodd" />
-                        </svg>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-    <!-- /Desktop cart table  -->
-
-    <!-- Summary  -->
-
-    <section class="mx-auto w-full px-4 md:max-w-[400px]">
-        <div class="">
-            <div class="border py-5 px-4 shadow-md">
-                <p class="font-bold">ORDER SUMMARY</p>
-
-                <div class="flex justify-between border-b py-5">
-                    <p>Subtotal</p>
-                    <p>$1280</p>
-                </div>
-
-                <div class="flex justify-between border-b py-5">
-                    <p>Shipping</p>
-                    <p>Free</p>
-                </div>
-
-                <div class="flex justify-between py-5">
-                    <p>Total</p>
-                    <p>$1280</p>
-                </div>
-
-                <a href="{{route('checkout')}}">
-                    <button class="w-full bg-violet-900 px-5 py-2 text-white">
-                        Proceed to checkout
-                    </button>
-                </a>
-            </div>
-        </div>
-    </section>
+    </div>
 </section>
+
+@include('partials.related-products')
 @endsection

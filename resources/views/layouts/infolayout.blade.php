@@ -4,14 +4,14 @@
 {{-- breadcrumbs --}}
 @yield('breadcrumbs')
 @if (auth()->check())
- <section class="container flex-grow mx-auto max-w-[1200px] border-b py-5 lg:flex lg:flex-row lg:py-10">
+ <section class="container flex-grow mx-auto max-w-screen-xl border-b py-5 lg:flex lg:flex-row lg:py-10">
 
     <!-- sidebar  -->
     <section class="hidden flex-shrink-0 px-4 lg:block">
         <div class="border-b py-5">
             <div class="flex items-center">
                 <img width="40px" height="40px" class="rounded-full object-cover"
-                    src="{{ asset('resources/images/myavatar.jpg') }}" alt="User Avatar" />
+                    src="{{ asset('resources/images/.jpg') }}" alt="User Avatar" />
                 <div class="ml-5">
                     <p class="font-medium text-gray-500">Hello,</p>
                     <p class="font-bold">{{ $user->first_name }} {{ $user->last_name }}</p>

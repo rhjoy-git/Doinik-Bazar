@@ -4,7 +4,7 @@
         alt="Living room image" />
 
     <div
-        class="absolute top-1/2 left-1/2 mx-auto flex w-11/12 max-w-[1200px] -translate-x-1/2 -translate-y-1/2 flex-col text-center text-white lg:ml-5">
+        class="absolute top-1/2 left-1/2 flex w-11/12 max-w-screen-xl -translate-x-1/2 -translate-y-1/2 flex-col text-left text-white lg:ml-5">
         <h1 class="text-4xl font-bold sm:text-5xl lg:text-left">
             Best Collection for Home decoration
         </h1>
@@ -13,10 +13,10 @@
             aperiam natus, nulla, obcaecati nesciunt, itaque adipisci earum
             ducimus pariatur eaque labore.
         </p>
-        <button
-            class="mx-auto mt-5 w-1/2 bg-amber-400 px-3 py-1 text-black duration-100 hover:bg-yellow-300 lg:mx-0 lg:h-10 lg:w-2/12 lg:px-10">
+        <a href="{{ route('all-products') }}"
+            class="py-2.5 px-5 text-base border-amber-500 rounded text-black font-medium border bg-amber-500 w-fit mt-4">
             Order Now
-        </button>
+        </a>
     </div>
 </div>
 <!-- /Hero Section  -->

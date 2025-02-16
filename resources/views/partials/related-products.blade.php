@@ -1,6 +1,6 @@
-<section class="container w-full max-w-[1200px] mx-auto pb-5 border-b-2">
-    <p class="mt-10 mb-5 px-5 uppercase text-center">Related Products</p>
-    <div class="grid grid-cols-2 gap-3 px-5 pb-10 lg:grid-cols-4">
+<section class="container w-full max-w-screen-xl mx-auto pb-5 border-b-2">
+    <h3 class="text-2xl font-semibold text-gray-900 text-center">People also bought</h3>
+    <div class="grid grid-cols-2 gap-3 px-5 pb-10 lg:grid-cols-4 mt-4">
         <!-- 1 -->
 
         <div class="relative flex flex-col">

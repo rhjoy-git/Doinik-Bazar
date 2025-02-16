@@ -1,13 +1,13 @@
 <div class="flex-grow">
     <section
-      class="container mx-auto max-w-[1200px] py-5 lg:flex lg:flex-row lg:py-10"
+      class="container mx-auto max-w-screen-xl py-5 lg:flex lg:flex-row lg:py-10"
     >
       <h2 class="mx-auto px-5 text-2xl font-bold md:hidden">
         Checkout Review
       </h2>
       <!-- form  -->
       <section
-        class="grid w-full max-w-[1200px] grid-cols-1 gap-3 px-5 pb-10"
+        class="grid w-full max-w-screen-xl grid-cols-1 gap-3 px-5 pb-10"
       >
         <table class="hidden lg:table">
           <thead class="h-16 bg-neutral-100">

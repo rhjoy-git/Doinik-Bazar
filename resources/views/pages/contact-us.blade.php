@@ -6,7 +6,7 @@
 @section('content')
 {{-- breadcrumbs --}}
 <x-breadcrumbs message="Contact Us" />
-<div class="container w-full max-w-[1200px] mx-auto px-4 py-8">
+<div class="container w-full max-w-screen-xl mx-auto px-4 py-8">
     <h1 class="text-3xl font-bold text-center mb-8">Contact Us</h1>
 
     <div class="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-md">

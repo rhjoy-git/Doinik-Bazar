@@ -1,5 +1,5 @@
 <!-- Products -->
-<section class="container w-full max-w-[1200px] mx-auto pb-10">
+<section class="container w-full max-w-screen-xl mx-auto pb-10">
     <p class="mt-10 mb-5 px-5">RECOMMENDED FOR YOU</p>
     <div class="grid grid-cols-2 gap-3 px-5 lg:grid-cols-4">
         <!-- 1 -->

@@ -1,5 +1,5 @@
 <!-- breadcrumbs  -->
-<nav class="mx-auto w-full mt-4 max-w-[1200px] px-5">
+<nav class="mx-auto w-full mt-4 max-w-screen-xl px-5">
     <ul class="flex items-center">
         <li class="cursor-pointer">
             <a href="{{ route('home') }}">

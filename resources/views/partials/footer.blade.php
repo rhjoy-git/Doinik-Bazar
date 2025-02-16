@@ -1,5 +1,5 @@
 <footer>
-    <section class="mx-auto w-full max-w-[1200px] justify-between pb-10 flex flex-col lg:flex-row">
+    <section class="mx-auto w-full max-w-screen-xl justify-between pb-10 flex flex-col lg:flex-row">
         <div class="ml-5">
             <img class="mt-10 mb-5 h-6 w-auto" src="{{ asset('resources/images/dblogo.png') }}" alt="company logo" />
             <p class="pl-0">
@@ -73,7 +73,7 @@
 
                 <!-- Optional: Additional Links -->
                 <section class="h-11 bg-amber-400 mt-3">
-                    <div class="mx-auto flex max-w-[1200px] items-center justify-between px-4 pt-2">
+                    <div class="mx-auto flex max-w-screen-xl items-center justify-between px-4 pt-2">
                         <div class="space-x-4">
                             <a href="{{ route('about-us') }}" class="text-gray-700 hover:text-violet-900">About Us</a>
                             <a href="{{ route('contact-us') }}" class="text-gray-700 hover:text-violet-900">Contact
@@ -87,8 +87,8 @@
                             <img src="https://cdn-icons-png.flaticon.com/512/349/349228.png" alt="Mastercard"
                                 class="h-8">
                             <img src="https://cdn-icons-png.flaticon.com/512/5968/5968144.png" alt="PayPal" class="h-8">
-                            <img src="{{ asset('images/payment-methods/amazon-pay.png') }}" alt="Amazon Pay"
-                                class="h-8">
+                            {{-- <img src="{{ asset('images/payment-methods/amazon-pay.png') }}" alt="Amazon Pay"
+                                class="h-8"> --}}
                         </div>
                     </div>
                 </section>

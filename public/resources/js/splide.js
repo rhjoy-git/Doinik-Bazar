@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     perPage: 1,
                 },
             },
+            pagination: false,
         });
         splide.mount();
     }

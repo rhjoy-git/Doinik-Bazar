@@ -1,4 +1,4 @@
-<section class="container w-full max-w-[1200px] mx-auto pb-10">
+<section class="container w-full max-w-screen-xl mx-auto pb-10">
 
     <h2 class="mb-5 px-5">SHOP BY CATHEGORY</h2>
     <div class="grid grid-cols-2 px-5 lg:grid-cols-3 lg:gap-5">

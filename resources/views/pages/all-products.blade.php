@@ -6,7 +6,7 @@
 @section('content')
 {{-- breadcrumbs --}}
 <x-breadcrumbs message="All Products" />
-<section class="container mx-auto flex-grow max-w-[1200px] border-b py-5 lg:flex lg:flex-row lg:py-10">
+<section class="container mx-auto flex-grow max-w-screen-xl border-b py-5 lg:flex lg:flex-row lg:py-10">
     <!-- sidebar  -->
     @include('partials.sidebar')
     <!-- /sidebar  -->

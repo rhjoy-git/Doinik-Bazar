@@ -3,11 +3,22 @@
 @section('content')
 {{-- breadcrumbs --}}
 <x-breadcrumbs :message="$product->name" />
-<section class="container flex-grow mx-auto max-w-[1200px] border-b py-5 lg:grid lg:grid-cols-2 lg:py-10">
+<!-- Product Details -->
+<section class="container flex-grow mx-auto max-w-screen-xl border-b py-5 lg:grid lg:grid-cols-2 lg:py-10">
     <!-- Image Gallery -->
     <div class="container mx-auto px-4">
-        <img class="w-full" src="{{ asset($product->image) }}" alt="{{ $product->name }}" />
-
+        <div class="relative overflow-hidden transform">
+            <img class="w-full" src="{{ asset($product->image) }}" alt="{{ $product->name }}" />
+            <!-- Add to Favorites Button -->
+            <button type="button" class="absolute top-0 -translate-x-1/2 translate-y-1/2 right-0 rounded p-1 text-white-500 hover:scale-105">
+                <span class="sr-only"> Add to Favorites </span>
+                <svg class="h-8 w-8" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 24 24">
+                    <path stroke="#4c1d95 " stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 6C6.5 1 1 8 5.8 13l6.2 7 6.2-7C23 8 17.5 1 12 6Z" />
+                </svg>
+            </button>
+        </div>
         <div class="mt-3 grid grid-cols-4 gap-4">
             @foreach(json_decode($product->images) as $image)
             <div>
@@ -16,11 +27,12 @@
             @endforeach
         </div>
     </div>
-
-    <!-- Description -->
+    {{-- Description --}}
     <div class="mx-auto px-5 lg:px-5">
-        <h2 class="pt-3 text-2xl font-bold lg:pt-0">{{ $product->name }}</h2>
-        <div class="mt-1">
+        {{-- Product name --}}
+        <h2 class="text-3xl font-bold text-gray-800 mb-2">{{ $product->name }}</h2>
+        {{-- Rating --}}
+        <div class="mt-1 mb-4">
             <div class="flex items-center">
                 @for($i = 1; $i <= 5; $i++) <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"
                     fill="currentColor"
@@ -33,88 +45,79 @@
                     <p class="ml-3 text-sm text-gray-400">({{ $product->review_count }} reviews)</p>
             </div>
         </div>
-
-        <p class="mt-5 font-bold">
-            Availability: <span class="text-green-600">{{ $product->availability }}</span>
-        </p>
-        <p class="font-bold">Brand: <span class="font-normal">{{ $product->brand }}</span></p>
-        <p class="font-bold">Category: <span class="font-normal">{{ $product->category }}</span></p>
-        <p class="font-bold">SKU: <span class="font-normal">{{ $product->sku }}</span></p>
-
-        <p class="mt-4 text-4xl font-bold text-violet-900">
-            ${{ $product->price }} <span class="text-xs text-gray-400 line-through">${{ $product->discount_price
-                }}</span>
-        </p>
-
-        <p class="pt-5 text-sm leading-5 text-gray-500">{{ $product->description }}</p>
-
-        <!-- Sizes -->
-        <div class="mt-6">
-            <p class="pb-2 text-xs text-gray-500">Size</p>
-            <div class="flex gap-1">
-                @foreach(json_decode($product->sizes) as $size)
-                <div
-                    class="flex h-8 w-auto px-2 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
-                    {{ $size }}
-                </div>
-                @endforeach
-            </div>
+        {{-- Price and Desc --}}
+        <div class="flex mb-4 gap-3 items-center justify-start">
+            <p class="font-bold text-gray-700 ">Price: <span class="text-gray-600 text-xl">${{ $product->price
+                    }}</span> <span class="text-sm text-gray-400 line-through">${{ $product->discount_price
+                    }}</span>
+            </p>
+            <p class="font-bold text-gray-700 ">Availability: <span class="text-green-600"> {{
+                    $product->availability }} </span></p>
         </div>
-
-        <!-- Colors -->
-        <div class="mt-6">
-            <p class="pb-2 text-xs text-gray-500">Color</p>
-            <div class="flex gap-1">
+        <div class="flex mb-4 gap-3 items-center justify-start">
+            <p class="font-bold">Brand: <span class="font-normal">{{ $product->brand }}</span></p>
+            <p class="font-bold">Category: <span class="font-normal">{{ $product->category }}</span></p>
+            <p class="font-bold">SKU: <span class="font-normal">{{ $product->sku }}</span></p>
+        </div>
+        {{-- Color --}}
+        <div class="mb-4">
+            <span class="font-bold text-gray-700 ">Select Color:</span>
+            <div class="flex items-center mt-2">
                 @foreach(json_decode($product->colors) as $color)
-                <div class="h-8 w-8 cursor-pointer border border-white" style="background-color: {{ $color }};"></div>
+                <button class="w-6 h-6 rounded-full mr-2" style="background-color: {{ $color }};"></button>
                 @endforeach
             </div>
         </div>
-
-        <!-- Quantity -->
-        <div class="mt-6">
-            <p class="pb-2 text-xs text-gray-500">Quantity</p>
-            <div class="flex">
+        {{-- Size --}}
+        <div class="mb-4">
+            <span class="font-bold text-gray-700 ">Select Size:</span>
+            <div class="flex items-center mt-2">
+                @foreach(json_decode($product->sizes) as $size)
+                <button class="bg-gray-300  text-gray-700  py-2 px-4 rounded-full font-bold mr-2 hover:bg-gray-400 ">{{
+                    $size }}</button>
+                @endforeach
+            </div>
+        </div>
+        {{-- Quantity --}}
+        <div class="flex justify-start items-center gap-2">
+            <span class="font-bold text-gray-700 ">Quantity:</span>
+            <div class="inline-flex items-center mt-2">
                 <button
-                    class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
-                    &minus;
+                    class="bg-white rounded-l border text-gray-600 hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50 inline-flex items-center px-2 py-1 border-r border-gray-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-4" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4" />
+                    </svg>
                 </button>
                 <div
-                    class="flex h-8 w-8 cursor-text items-center justify-center border-t border-b active:ring-gray-500">
-                    1
+                    class="bg-gray-100 border-t border-b border-gray-100 text-gray-600 hover:bg-gray-100 inline-flex items-center px-4 py-1 select-none">
+                    2
                 </div>
                 <button
-                    class="flex h-8 w-8 cursor-pointer items-center justify-center border duration-100 hover:bg-neutral-100 focus:ring-2 focus:ring-gray-500 active:ring-2 active:ring-gray-500">
-                    &#43;
+                    class="bg-white rounded-r border text-gray-600 hover:bg-gray-100 active:bg-gray-200 disabled:opacity-50 inline-flex items-center px-2 py-1 border-r border-gray-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-4" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
                 </button>
             </div>
         </div>
-
-        <!-- Buttons -->
-        <div class="mt-7 flex flex-row items-center gap-6">
-            <button
-                class="flex h-12 w-1/3 items-center justify-center bg-violet-900 text-white duration-100 hover:bg-blue-800">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="mr-3 h-4 w-4">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-                </svg>
-                Add to cart
-            </button>
-            <button class="flex h-12 w-1/3 items-center justify-center bg-amber-400 duration-100 hover:bg-yellow-300">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="mr-3 h-4 w-4">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                </svg>
-                Wishlist
-            </button>
+        {{-- Action Button --}}
+        <div class="flex -mx-2 mb-4 mt-4">
+            <div class="w-1/2 px-2">
+                <button
+                    class="w-full bg-violet-900 text-white duration-100 hover:bg-blue-800 py-2 px-4 rounded-full font-bold">Add
+                    to Cart</button>
+            </div>
+            <div class="w-1/2 px-2">
+                <button
+                    class="w-full bg-amber-400 duration-100 hover:scale-105 hover:font-bolder py-2 px-4 rounded-full font-bold">Wish List</button>
+            </div>
         </div>
     </div>
 </section>
-
 <!-- Product Details -->
-<section class="container mx-auto max-w-[1200px] px-5 py-5 lg:py-10">
+<section class="container mx-auto max-w-screen-xl px-5 py-5 lg:py-10">
     <h2 class="text-xl">Product details</h2>
     <p class="mt-4 lg:w-3/4">{{ $product->description }}</p>
 

@@ -27,7 +27,7 @@
     x-data="{ desktopMenuOpen: false, mobileMenuOpen: false}" x-cloak>
 
     <!-- Header -->
-    <header class="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-5">
+    <header class="mx-auto flex h-16 max-w-screen-xl items-center justify-between px-5">
         <a href="/" class="flex items-center">
             <img class="cursor-pointer h-6 w-40" src="{{ asset('resources/images/dblogo.png') }}" alt="company logo" />
         </a>
@@ -164,7 +164,7 @@
     <!-- Nav bar -->
     <!-- hidden on small devices -->
     <nav class="relative bg-violet-900">
-        <div class="mx-auto hidden h-12 w-full max-w-[1200px] items-center md:flex">
+        <div class="mx-auto hidden h-12 w-full max-w-screen-xl items-center md:flex">
             <button @click="desktopMenuOpen = ! desktopMenuOpen"
                 class="ml-5 flex h-full w-40 cursor-pointer items-center justify-center bg-amber-400">
                 <div class="flex justify-around" href="#">
@@ -207,7 +207,7 @@
     <!-- Menu  -->
     <section x-show="desktopMenuOpen" @click.outside="desktopMenuOpen = false"
         class="absolute left-0 right-0 z-10 w-full border-b border-r border-l bg-white" style="display: none">
-        <div class="mx-auto flex max-w-[1200px] py-10">
+        <div class="mx-auto flex max-w-screen-xl py-10">
             <div class="w-[300px] border-r">
                 <ul class="px-5">
                     <li class="active:blue-900 flex items-center gap-2 bg-amber-400 py-2 px-3 active:bg-amber-400">
@@ -336,7 +336,7 @@
             src="{{ asset('resources/images/homebg.png') }}" alt="Living room image" />
 
         <div
-            class="absolute top-1/2 left-1/2 mx-auto flex w-11/12 max-w-[1200px] -translate-x-1/2 -translate-y-1/2 flex-col text-center text-white lg:ml-5">
+            class="absolute top-1/2 left-1/2 mx-auto flex w-11/12 max-w-screen-xl -translate-x-1/2 -translate-y-1/2 flex-col text-center text-white lg:ml-5">
             <h1 class="text-4xl font-bold sm:text-5xl lg:text-left">
                 Best Collection for Home decoration
             </h1>
@@ -414,10 +414,10 @@
     </section>
 
     <!-- /Cons bages  -->
-    <h2 class="mx-auto mb-5 max-w-[1200px] px-5">SHOP BY CATHEGORY</h2>
+    <h2 class="mx-auto mb-5 max-w-screen-xl px-5">SHOP BY CATHEGORY</h2>
 
     <!-- Cathegories -->
-    <section class="mx-auto grid max-w-[1200px] grid-cols-2 px-5 lg:grid-cols-3 lg:gap-5">
+    <section class="mx-auto grid max-w-screen-xl grid-cols-2 px-5 lg:grid-cols-3 lg:gap-5">
         <!-- 1 -->
 
         <a href="#">
@@ -506,12 +506,12 @@
 
     <!-- /Slider  -->
 
-    <p class="mx-auto mt-10 mb-5 max-w-[1200px] px-5">TOP NEW ARRIVAL</p>
+    <p class="mx-auto mt-10 mb-5 max-w-screen-xl px-5">TOP NEW ARRIVAL</p>
 
     <!-- Slider  -->
-    <section class="splide mx-auto max-w-[1200px] px-5 py-2" aria-label="Splide Basic HTML Example">
+    <section class="splide mx-auto max-w-screen-xl px-5 py-2" aria-label="Splide Basic HTML Example">
         <div class="splide__track">
-            <ul class="splide__list mx-auto max-w-[1200px]">
+            <ul class="splide__list mx-auto max-w-screen-xl">
                 <!-- 1 -->
                 <li class="splide__slide">
                     <div class="flex flex-col">
@@ -866,8 +866,8 @@
 
     <!-- Special offer card -->
 
-    <div class="mx-auto max-w-[1200px] px-5">
-        <section class="mt-10 flex max-w-[1200px] justify-between bg-violet-900 px-5">
+    <div class="mx-auto max-w-screen-xl px-5">
+        <section class="mt-10 flex max-w-screen-xl justify-between bg-violet-900 px-5">
             <div class="py-8 px-3 lg:px-16">
                 <p class="text-white">ONLINE EXCLUSIVE</p>
                 <h2 class="pt-6 text-5xl font-bold text-yellow-400">15% OFF</h2>
@@ -888,10 +888,10 @@
 
     <!-- /Special offer card -->
 
-    <p class="mx-auto mt-10 mb-5 max-w-[1200px] px-5">RECOMMENDED FOR YOU</p>
+    <p class="mx-auto mt-10 mb-5 max-w-screen-xl px-5">RECOMMENDED FOR YOU</p>
 
     <!-- Recommendations -->
-    <section class="mx-auto grid max-w-[1200px] grid-cols-2 gap-3 px-5 pb-10 lg:grid-cols-4">
+    <section class="mx-auto grid max-w-screen-xl grid-cols-2 gap-3 px-5 pb-10 lg:grid-cols-4">
         <!-- 1 -->
 
         <div class="flex flex-col">
@@ -1552,7 +1552,7 @@
     <!-- /Recommendations -->
 
     <!-- Desktop Footer  -->
-    <footer class="mx-auto w-full max-w-[1200px] justify-between pb-10 flex flex-col lg:flex-row">
+    <footer class="mx-auto w-full max-w-screen-xl justify-between pb-10 flex flex-col lg:flex-row">
         <div class="ml-5">
             <img class="mt-10 mb-5 h-6 w-auto" src="{{ asset('resources/images/dblogo.png') }}" alt="company logo" />
             <p class="pl-0">
@@ -1616,7 +1616,7 @@
     <!-- /Desktop Footer  -->
     <!-- Payment and copyright  -->
     <section class="h-11 bg-amber-400">
-        <div class="mx-auto flex max-w-[1200px] items-center justify-between px-4 pt-2">
+        <div class="mx-auto flex max-w-screen-xl items-center justify-between px-4 pt-2">
             <p>&copy; Rakibul Hasan Joy</p>
             <div class="flex items-center space-x-3">
                 <img class="h-8" src="https://cdn-icons-png.flaticon.com/512/5968/5968299.png" alt="Visa icon" />

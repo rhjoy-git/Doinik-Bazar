@@ -1,5 +1,5 @@
 <!-- Top Bar -->
-<header class="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-5">
+<header class="mx-auto flex h-16 max-w-screen-xl items-center justify-between px-5">
     <a href="/" class="flex items-center">
         <img class="cursor-pointer h-6 w-40" src="{{ asset('resources/images/dblogo.png') }}" alt="company logo" />
     </a>
