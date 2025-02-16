@@ -17,7 +17,7 @@
             <a class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
                 href="{{ route('home') }}">Home</a>
             <a class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
-                href="{{ route('all-products') }}">All Products</a>
+                href="{{ route('all-products') }}" class="hover:underline">All Products</a>
             <a class="font-light text-white duration-100 hover:text-yellow-400 hover:underline"
                 href="{{ route('about-us') }}">About
                 Us</a>
@@ -156,20 +156,45 @@
                     <div class="mx-5">
                         <p class="font-medium text-gray-500">BEDS</p>
                         <ul class="text-sm leading-8">
-                            <li><a href="product-overview.html">Italian bed</a></li>
-                            <li><a href="product-overview.html">Queen-size bed</a></li>
-                            <li><a href="product-overview.html">Wooden craft bed</a></li>
-                            <li><a href="product-overview.html">King-size bed</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Italian bed</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Queen-size bed</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Wooden craft bed</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">King-size bed</a></li>
                         </ul>
                     </div>
                     <div class="mx-5">
                         <p class="font-medium text-gray-500">LAMPS</p>
                         <ul class="text-sm leading-8">
-                            <li><a href="product-overview.html">Italian Purple Lamp</a></li>
-                            <li><a href="product-overview.html">APEX Lamp</a></li>
-                            <li><a href="product-overview.html">PIXAR lamp</a></li>
-                            <li><a href="product-overview.html">Ambient Nightlamp</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Italian Purple Lamp</a>
+                            </li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">APEX Lamp</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">PIXAR lamp</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Ambient Nightlamp</a></li>
                         </ul>
+                    </div>
+                    <div class="mx-5">
+                        <p class="font-medium text-gray-500">Best Sell Product</p>
+                        <div class="bg-gray-50 w-fit h-52 rounded-lg overflow-hidden group relative">
+                            <!-- Image Container -->
+                            <a href="" class="">
+                                <img src="{{ asset('resources/images/bedroom.png') }}" alt="Latest News image"
+                                    class="w-full h-auto rounded-md transition-transform duration-300 group-hover:scale-105">
+                            </a>
+                            <!-- Details Container (Hidden by Default, Revealed on Hover) -->
+                            <div
+                                class="py-2 px-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute bottom-0 left-0 right-0 bg-white bg-opacity-90 backdrop-blur-sm">
+                                <h5 class="text-gray-900 text-base mb-1.5 font-semibold">Comfortable and Stylish Bed
+                                </h5>
+                                <p class="font-bold text-gray-700">Price:
+                                    <span class="text-gray-600 text-base">$5,000</span>
+                                    <span class="text-sm text-gray-400 line-through">$500</span>
+                                </p>
+                                <a href="#"
+                                    class="block w-fit px-3 py-2 bg-amber-500 rounded-lg mt-1 text-sm font-semibold text-white hover:bg-amber-600 transition-colors duration-300">
+                                    Buy Now
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </template>
@@ -180,10 +205,11 @@
                     <div class="mx-5">
                         <p class="font-medium text-gray-500">MATTRESSES</p>
                         <ul class="text-sm leading-8">
-                            <li><a href="product-overview.html">Memory Foam Mattress</a></li>
-                            <li><a href="product-overview.html">Spring Mattress</a></li>
-                            <li><a href="product-overview.html">Latex Mattress</a></li>
-                            <li><a href="product-overview.html">Hybrid Mattress</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Memory Foam Mattress</a>
+                            </li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Spring Mattress</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Latex Mattress</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Hybrid Mattress</a></li>
                         </ul>
                     </div>
                 </div>
@@ -195,10 +221,10 @@
                     <div class="mx-5">
                         <p class="font-medium text-gray-500">OUTDOOR FURNITURE</p>
                         <ul class="text-sm leading-8">
-                            <li><a href="product-overview.html">Patio Chairs</a></li>
-                            <li><a href="product-overview.html">Outdoor Tables</a></li>
-                            <li><a href="product-overview.html">Garden Benches</a></li>
-                            <li><a href="product-overview.html">Sun Loungers</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Patio Chairs</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Outdoor Tables</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Garden Benches</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Sun Loungers</a></li>
                         </ul>
                     </div>
                 </div>
@@ -210,19 +236,19 @@
                     <div class="mx-5">
                         <p class="font-medium text-gray-500">SOFAS</p>
                         <ul class="text-sm leading-8">
-                            <li><a href="product-overview.html">Leather Sofa</a></li>
-                            <li><a href="product-overview.html">Fabric Sofa</a></li>
-                            <li><a href="product-overview.html">Recliner Sofa</a></li>
-                            <li><a href="product-overview.html">Sectional Sofa</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Leather Sofa</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Fabric Sofa</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Recliner Sofa</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Sectional Sofa</a></li>
                         </ul>
                     </div>
                     <div class="mx-5">
                         <p class="font-medium text-gray-500">LOUNGE CHAIRS</p>
                         <ul class="text-sm leading-8">
-                            <li><a href="product-overview.html">Armchair</a></li>
-                            <li><a href="product-overview.html">Accent Chair</a></li>
-                            <li><a href="product-overview.html">Rocking Chair</a></li>
-                            <li><a href="product-overview.html">Bean Bag Chair</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Armchair</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Accent Chair</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Rocking Chair</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Bean Bag Chair</a></li>
                         </ul>
                     </div>
                 </div>
@@ -234,28 +260,28 @@
                     <div class="mx-5">
                         <p class="font-medium text-gray-500">KITCHEN CABINETS</p>
                         <ul class="text-sm leading-8">
-                            <li><a href="product-overview.html">Wall Cabinets</a></li>
-                            <li><a href="product-overview.html">Base Cabinets</a></li>
-                            <li><a href="product-overview.html">Pantry Cabinets</a></li>
-                            <li><a href="product-overview.html">Corner Cabinets</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Wall Cabinets</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Base Cabinets</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Pantry Cabinets</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Corner Cabinets</a></li>
                         </ul>
                     </div>
                     <div class="mx-5">
                         <p class="font-medium text-gray-500">KITCHEN APPLIANCES</p>
                         <ul class="text-sm leading-8">
-                            <li><a href="product-overview.html">Refrigerators</a></li>
-                            <li><a href="product-overview.html">Microwaves</a></li>
-                            <li><a href="product-overview.html">Blenders</a></li>
-                            <li><a href="product-overview.html">Coffee Makers</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Refrigerators</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Microwaves</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Blenders</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Coffee Makers</a></li>
                         </ul>
                     </div>
                     <div class="mx-5">
                         <p class="font-medium text-gray-500">KITCHEN UTENSILS</p>
                         <ul class="text-sm leading-8">
-                            <li><a href="product-overview.html">Cutlery Sets</a></li>
-                            <li><a href="product-overview.html">Cookware Sets</a></li>
-                            <li><a href="product-overview.html">Bakeware</a></li>
-                            <li><a href="product-overview.html">Kitchen Tools</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Cutlery Sets</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Cookware Sets</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Bakeware</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Kitchen Tools</a></li>
                         </ul>
                     </div>
                 </div>
@@ -267,28 +293,29 @@
                     <div class="mx-5">
                         <p class="font-medium text-gray-500">LIVING ROOM FURNITURE</p>
                         <ul class="text-sm leading-8">
-                            <li><a href="product-overview.html">Coffee Tables</a></li>
-                            <li><a href="product-overview.html">TV Stands</a></li>
-                            <li><a href="product-overview.html">Bookshelves</a></li>
-                            <li><a href="product-overview.html">Console Tables</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Coffee Tables</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">TV Stands</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Bookshelves</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Console Tables</a></li>
                         </ul>
                     </div>
                     <div class="mx-5">
                         <p class="font-medium text-gray-500">DECOR</p>
                         <ul class="text-sm leading-8">
-                            <li><a href="product-overview.html">Wall Art</a></li>
-                            <li><a href="product-overview.html">Vases</a></li>
-                            <li><a href="product-overview.html">Decorative Pillows</a></li>
-                            <li><a href="product-overview.html">Rugs</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Wall Art</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Vases</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Decorative Pillows</a>
+                            </li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Rugs</a></li>
                         </ul>
                     </div>
                     <div class="mx-5">
                         <p class="font-medium text-gray-500">LIGHTING</p>
                         <ul class="text-sm leading-8">
-                            <li><a href="product-overview.html">Floor Lamps</a></li>
-                            <li><a href="product-overview.html">Table Lamps</a></li>
-                            <li><a href="product-overview.html">Chandeliers</a></li>
-                            <li><a href="product-overview.html">Pendant Lights</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Floor Lamps</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Table Lamps</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Chandeliers</a></li>
+                            <li><a href="{{ route('all-products') }}" class="hover:underline">Pendant Lights</a></li>
                         </ul>
                     </div>
                 </div>
