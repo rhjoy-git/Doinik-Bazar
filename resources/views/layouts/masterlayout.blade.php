@@ -24,7 +24,7 @@
 </head>
 
 <body class="font-sans antialiased dark:bg-white dark:text-black"
-    x-data="{ desktopMenuOpen: false, mobileMenuOpen: false}" x-cloak>
+    x-data="{ megaMenu: false, mobileMenuOpen: false}" x-cloak>
     <!-- Top Bar -->
     @include('partials.top-bar')
     <!-- Navbar -->

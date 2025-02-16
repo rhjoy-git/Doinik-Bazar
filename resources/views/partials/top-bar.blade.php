@@ -7,21 +7,19 @@
         <button @click="mobileMenuOpen = !mobileMenuOpen" aria-label="Menu">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                 stroke="currentColor" class="h-8 w-8">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
             </svg>
         </button>
     </div>
 
     <form class="hidden h-10 w-5/12 items-center border md:flex m-0">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-            stroke="currentColor" class="mx-3 h-4 w-4">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+            class="mx-3 h-4 w-4">
             <path stroke-linecap="round" stroke-linejoin="round"
                 d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
         </svg>
 
-        <input
-            class="w-11/12 outline-none p-0 border-none md:block focus:outline-none focus:ring-0 focus:ring-offset-0"
+        <input class="w-11/12 outline-none p-0 border-none md:block focus:outline-none focus:ring-0 focus:ring-offset-0"
             type="search" placeholder="Search" />
 
         <button aria-label="Search" class="ml-auto h-full bg-amber-400 px-4 hover:bg-yellow-300">
@@ -52,8 +50,7 @@
 
         <a href="{{ route('user.account') }}" class="relative flex cursor-pointer flex-col items-center justify-center">
             <span class="absolute bottom-[33px] right-1 flex h-2 w-2">
-                <span
-                    class="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"></span>
+                <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"></span>
                 <span class="relative inline-flex h-2 w-2 rounded-full bg-red-500"></span>
             </span>
 
@@ -94,7 +91,8 @@
                 <p class="text-xs">Cart</p>
             </a>
 
-            <a href="{{ route('user.account') }}" class="relative flex cursor-pointer flex-col items-center justify-center">
+            <a href="{{ route('user.account') }}"
+                class="relative flex cursor-pointer flex-col items-center justify-center">
                 <span class="absolute bottom-[33px] right-1 flex h-2 w-2">
                     <span
                         class="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-75"></span>
@@ -127,8 +125,8 @@
         <ul class="text-center font-medium">
             <li class="py-2"><a href="/">Home</a></li>
             <li class="py-2"><a href="{{ route('all-products') }}">All Products</a></li>
-            <li class="py-2"><a href="about-us.html">About Us</a></li>
-            <li class="py-2"><a href="contact-us.html">Contact Us</a></li>
+            <li class="py-2"><a href="{{route('about-us')}}">About Us</a></li>
+            <li class="py-2"><a href="{{route('contact-us')}}">Contact Us</a></li>
         </ul>
     </div>
 </section>

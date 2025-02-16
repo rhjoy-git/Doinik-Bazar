@@ -10,7 +10,8 @@
         <div class="relative overflow-hidden transform">
             <img class="w-full" src="{{ asset($product->image) }}" alt="{{ $product->name }}" />
             <!-- Add to Favorites Button -->
-            <button type="button" class="absolute top-0 -translate-x-1/2 translate-y-1/2 right-0 rounded p-1 text-white-500 hover:scale-105">
+            <button type="button"
+                class="absolute top-0 -translate-x-1/2 translate-y-1/2 right-0 rounded p-1 text-white-500 hover:scale-105">
                 <span class="sr-only"> Add to Favorites </span>
                 <svg class="h-8 w-8" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                     viewBox="0 0 24 24">
@@ -18,6 +19,14 @@
                         d="M12 6C6.5 1 1 8 5.8 13l6.2 7 6.2-7C23 8 17.5 1 12 6Z" />
                 </svg>
             </button>
+            <!-- Discount Button -->
+            @if ($product->discount_price)
+            <div
+                class="absolute bg-amber-400 flex items-center justify-center top-0 left-0 translate-x-\ translate-y-1/2">
+                <p class="px-2 py-2 text-sm">{{
+                    round((($product->price - $product->discount_price) / $product->price) * 100) }}% off</p>
+            </div>
+            @endif
         </div>
         <div class="mt-3 grid grid-cols-4 gap-4">
             @foreach(json_decode($product->images) as $image)
@@ -105,13 +114,14 @@
         {{-- Action Button --}}
         <div class="flex -mx-2 mb-4 mt-4">
             <div class="w-1/2 px-2">
-                <button
-                    class="w-full bg-violet-900 text-white duration-100 hover:bg-blue-800 py-2 px-4 rounded-full font-bold">Add
-                    to Cart</button>
+                <a href="{{ route('user.cart') }}"
+                    class="block text-center w-full bg-violet-900 text-white duration-100 hover:bg-blue-800 py-2 px-4 rounded-full font-bold">Add
+                    to Cart</a>
             </div>
             <div class="w-1/2 px-2">
-                <button
-                    class="w-full bg-amber-400 duration-100 hover:scale-105 hover:font-bolder py-2 px-4 rounded-full font-bold">Wish List</button>
+                <a href="{{ route('user.cart') }}"
+                    class="block text-center w-full bg-amber-400 duration-100 hover:scale-105 hover:font-bolder py-2 px-4 rounded-full font-bold">Buy
+                    Now</a>
             </div>
         </div>
     </div>
