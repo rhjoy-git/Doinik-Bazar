@@ -23,7 +23,7 @@ class UserController extends Controller
             return view('auth.register');
         }
     }
-
+    // Wishlist
     public function userWishlist()
     {
         // Check if the user is already logged in
@@ -34,7 +34,7 @@ class UserController extends Controller
         // If not logged in, show the login form
         return redirect()->route('login');
     }
-
+    // Cart
     public function userCart()
     {
         // Check if the user is already logged in
@@ -44,7 +44,21 @@ class UserController extends Controller
         // If not logged in, show the login form
         return redirect()->route('login');
     }
-
+    // Address
+    public function userAddress()
+    {
+        return view('partials.checkout-address');
+    }
+    // Payment 
+    public function userPayment()
+    {
+        return view('partials.checkout-payment');
+    }
+    // delivery
+    public function userDelivery()
+    {
+        return view('partials.checkout-delivery');
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -60,7 +74,7 @@ class UserController extends Controller
         $data = $request->validate([
             'first_name' => 'required|string|max:255',
             'last_name' => 'required|string|max:255',
-            'phone' => 'required|string|max:20|unique:users,phone',
+            'phone' => 'required|string|max:14',
             'dob' => 'required|date|before:today',
             'gender' => 'required|in:male,female,other',
             'country' => 'required|string|max:255',
@@ -73,7 +87,7 @@ class UserController extends Controller
         // Hash password
         $data['password'] = Hash::make($request->password);
 
-        // Create user
+        // Create user and store in Batabase
         $user = User::create($data);
 
         // Log the user in
@@ -104,9 +118,45 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
-    }
+        // Find the user by ID  
+        $user = User::findOrFail($id);
 
+        // Validate input  
+        $data = $request->validate([
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'phone' => 'required|string|max:14',
+            'dob' => 'required|date|before:today',
+            'gender' => 'required|in:male,female,other',
+            'country' => 'required|string|max:255',
+            'state' => 'required|string|max:255',
+            'postcode' => 'required|string|max:20',
+        ]);
+
+        // Update user information  
+        $user->update($data);
+
+        return back()->with('success', 'User updated successfully!');
+    }
+    public function updatePassword(Request $request)
+    {
+        $data = $request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed|min:8',
+        ]);
+
+        $user = Auth::user();
+
+        // Check if the old password matches
+        if (!Hash::check($request->old_password, $user->password)) {
+            return back()->with('error', 'Old password is incorrect.');
+        }
+
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+
+        return redirect('user/account')->with('success', 'Password changed successful!');
+    }
     /**
      * Remove the specified resource from storage.
      */

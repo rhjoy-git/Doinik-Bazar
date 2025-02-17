@@ -5,67 +5,98 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\ViewController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Product;
 
-// ===========================
-// Home Route
-// ===========================
+/*
+|--------------------------------------------------------------------------
+| Home Route
+|--------------------------------------------------------------------------
+| The main landing page of the application.
+*/
+
 Route::get('/', function () {
     $products = Product::take(8)->get(); // Fetch the first 8 products
     return view('pages.home', compact('products'));
 })->name('home');
 
-// ===========================
-// Product Routes
-// ===========================
+/*
+|--------------------------------------------------------------------------
+| Product Routes (Grouped)
+|--------------------------------------------------------------------------
+*/
 Route::prefix('products')->group(function () {
-    Route::get('/', [ProductController::class, 'index'])->name('products');
-    Route::get('/all', [ProductController::class, 'allProducts'])->name('all-products');
-    Route::get('/{id}', [ProductController::class, 'show'])->name('product-overview');
+    Route::controller(ProductController::class)->group(function () {
+        Route::get('/', 'index')->name('products'); // List of products
+        Route::get('/all', 'allProducts')->name('all-products'); // All products
+        Route::get('/{id}', 'show')->name('product-overview'); // Single product details
+    });
 });
 
-// ===========================
-// Static Pages Routes
-// ===========================
-Route::view('/about-us', 'pages.about-us')->name('about-us');
-Route::view('/all/products', 'pages.products')->name('products');
-Route::get('/wishlist', [UserController::class, 'userWishlist'])->name('user.wishlist');
-Route::get('/cart', [UserController::class, 'userCart'])->name('user.cart');
-
-// ===========================
-// Contact Routes
-// ===========================
-Route::get('/contact-us', [ContactController::class, 'index'])->name('contact-us');
-Route::post('/contact-us', [ContactController::class, 'submit'])->name('contact.submit');
-// ===========================
-// Account Routes
-// ===========================
-Route::get('/account', [AccountController::class, 'index'])->name('user.account')->middleware('auth');
-
-// ===========================
-// Checkout Routes
-// ===========================
-Route::prefix('checkout')->group(function () {
-    Route::view('/address', 'partials.checkout-address')->name('checkout');
-    Route::view('/delivery', 'partials.checkout-delivery')->name('checkout.delivery');
-    Route::view('/payment', 'partials.checkout-payment')->name('checkout.payment');
+/*
+|--------------------------------------------------------------------------
+| Static Page Routes
+|--------------------------------------------------------------------------
+*/
+Route::controller(ViewController::class)->group(function () {
+    Route::get('/about-us', 'aboutusview')->name('about-us'); // About Us page
+    Route::get('/all/products', 'dummyproductview')->name('products'); // Dummy product view
 });
 
-// ===========================
-// Dashboard & Authenticated User Routes
-// ===========================
-Route::get('/register', [UserController::class, 'index'])->name('register');
-Route::post('/register', [UserController::class, 'store'])->name('register.submit');
-// Logout route
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
-// Login route
-Route::post('/login', [AuthController::class, 'login'])->name('login.submit');
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login')->middleware('guest');
-// ===========================
-// Authentication Routes
-// ===========================
+/*
+|--------------------------------------------------------------------------
+| Contact Us Routes (Grouped)
+|--------------------------------------------------------------------------
+*/
+Route::prefix('contact-us')->controller(ContactController::class)->group(function () {
+    Route::get('/', 'index')->name('contact-us'); // Contact Us page
+    Route::post('/', 'submit')->name('contact.submit'); // Contact form submission
+});
 
-// ===========================
-// Dummy Routes
-// ===========================
+/*
+|--------------------------------------------------------------------------
+| Account Routes (Grouped)
+|--------------------------------------------------------------------------
+*/
+Route::middleware('auth')->prefix('user')->controller(AccountController::class)->group(function () {
+    Route::get('/account', 'index')->name('user.account'); // User account page
+    Route::get('/update-password', 'indexUpdatePassword')->name('user.changePassword')->middleware('auth');
+    Route::get('/personal-information', 'personalInformation')->name('user.personalInformation')->middleware('auth');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Checkout Routes (Grouped)
+|--------------------------------------------------------------------------
+*/
+Route::prefix('checkout')->controller(UserController::class)->group(function () {
+    Route::get('/address', 'userAddress')->name('checkout'); // Checkout address
+    Route::get('/payment', 'userPayment')->name('checkout.payment'); // Checkout payment
+    Route::get('/delivery', 'userDelivery')->name('checkout.delivery'); // Checkout delivery
+});
+
+/*
+|--------------------------------------------------------------------------
+| User Registration and Management Routes (Grouped)
+|--------------------------------------------------------------------------
+*/
+Route::controller(UserController::class)->group(function () {
+    Route::get('/register', 'index')->name('register'); // Registration page
+    Route::post('/register', 'store')->name('register.submit'); // Registration form submission
+    Route::get('/wishlist', 'userWishlist')->name('user.wishlist')->middleware('auth'); // User wishlist
+    Route::get('/cart', 'userCart')->name('user.cart')->middleware('auth'); // User cart
+    Route::post('/user/update/{id}', 'update')->name('user.update')->middleware('auth'); // Update user information
+    Route::post('/update-password', 'updatePassword')->name('update.password')->middleware('auth');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Authentication Routes (Grouped)
+|--------------------------------------------------------------------------
+*/
+Route::controller(AuthController::class)->group(function () {
+    Route::post('/logout', 'logout')->name('logout')->middleware('auth'); // Logout
+    Route::post('/login', 'login')->name('login.submit'); // Login form submission
+    Route::get('/login', 'showLoginForm')->name('login')->middleware('guest'); // Login page
+});

@@ -4,13 +4,13 @@
 @endsection
 {{-- breadcrumbs --}}
 @section('breadcrumbs')
-<x-breadcrumbs message="Account" />
+<x-breadcrumbs message="Manage Account" />
 @endsection
 {{-- info-content --}}
 @section('info-content')
 <section class="bg-white p-8 antialiased md:py-8 ms-10" x-data="{ editPersonalInformation: false }">
     <h2 class="mb-4 text-xl font-semibold text-gray-900  sm:text-2xl md:mb-6">Manage Account</h2>
-    <div class="mx-auto max-w-screen-lg px-4 2xl:px-0">
+    <div class="mx-auto max-w-screen-xl w-full px-4 2xl:px-0">
         <div class="py-4 md:py-8">
             <div class="mb-4 grid gap-4 sm:grid-cols-2 sm:gap-8 lg:gap-16">
                 <div class="space-y-4">
@@ -39,11 +39,7 @@
                                     stroke-width="2"
                                     d="m4 12 8-8 8 8M6 10.5V19a1 1 0 0 0 1 1h3v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3h3a1 1 0 0 0 1-1v-8.5" />
                             </svg>
-                            @if ($user->address)
-                            {{$user->address}}
-                            @else
-                            Null
-                            @endif
+                            {{$user->state}}, {{$user->country}} - {{$user->postcode}}
                         </dd>
                     </dl>
                     <dl>
@@ -123,9 +119,9 @@
                 Edit your data
             </button>
         </div>
-        <div class="rounded-lg border border-gray-200 bg-gray-50 p-4   md:p-8">
+        <div class="rounded-lg border border-gray-200 bg-gray-50 p-4 max-w-screen-lg w-[850px] md:p-8">
             <h3 class="mb-4 text-xl font-semibold text-gray-900 ">Latest orders</h3>
-            <div class="flex flex-wrap items-center gap-y-4 border-b border-gray-200 pb-4 md:pb-5">
+            <div class="flex flex-wrap items-center gap-y-4 border-b border-gray-200 pb-4 w-full md:pb-5">
                 <dl class="w-1/2 sm:w-48">
                     <dt class="text-base font-medium text-gray-500 ">Order ID:</dt>
                     <dd class="mt-1.5 text-base font-semibold text-gray-900 ">
@@ -473,7 +469,7 @@
                     <span class="sr-only">Close modal</span>
                 </button>
             </div>
-            <form method="" action="" class="mt-6 flex flex-col">
+            <form method="POST" action="{{ route('user.update', $user->id) }}" class="mt-6 flex flex-col">
                 @csrf
                 <!-- First Name -->
                 <label class="text-white" for="first_name">First Name</label>
@@ -558,13 +554,14 @@
                 </div>
 
                 <!-- Register Button -->
-                <div class="flex justify-center items-center gap-5"><button type="submit"
-                        class="my-5 w-full bg-violet-900 py-2 text-white">
-                        Save
-                    </button>
+                <div class="flex justify-center items-center gap-5">
                     <button type="button" @click="editPersonalInformation = false"
-                        class="my-5 w-full bg-violet-900 py-2 text-white">
+                        class="my-5 w-1/2 text-base rounded-lg bg-violet-700 py-2 text-white font-bold">
                         Cancle
+                    </button>
+                    <button type="submit"
+                        class="my-5 w-1/2 bg-amber-500 rounded-lg text-base py-2 text-white font-bold">
+                        Save
                     </button>
                 </div>
 
@@ -573,14 +570,14 @@
     </section>
 </section>
 
-
-
 <!-- Success Pop-up -->
+@if(session('success'))
 <div id="success-popup" class="fixed inset-0 items-center justify-center bg-black bg-opacity-50 hidden">
     <div class="bg-white p-6 rounded-lg shadow-lg transform transition-all duration-300 scale-95 opacity-0">
         <p class="text-green-600 font-semibold">{{ session('success') }}</p>
     </div>
 </div>
+@endif
 <!-- Add CSS for Animation -->
 <style>
     @keyframes popup {

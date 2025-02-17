@@ -21,7 +21,7 @@ class AuthController extends Controller
             $request->session()->regenerate();
 
             // Redirect to the intended page or a default page
-            return redirect()->intended('/account')->with('success', 'Login successful!');
+            return redirect()->intended('user/account')->with('success', 'Login successful!');
         }
 
         // If login fails, redirect back with an error message
