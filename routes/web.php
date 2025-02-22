@@ -1,12 +1,22 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\ConfirmablePasswordController;
+use App\Http\Controllers\Auth\EmailVerificationNotificationController;
+use App\Http\Controllers\Auth\EmailVerificationPromptController;
+use App\Http\Controllers\Auth\NewPasswordController;
+use App\Http\Controllers\Auth\PasswordController;
+use App\Http\Controllers\Auth\PasswordResetLinkController;
+use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Auth\VerifyEmailController;
+use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ViewController;
-use Illuminate\Support\Facades\Route;
 use App\Models\Product;
 
 /*
@@ -21,6 +31,30 @@ Route::get('/', function () {
     return view('pages.home', compact('products'));
 })->name('home');
 
+
+Route::middleware('guest')->group(function () {
+    Route::get('register', [RegisteredUserController::class, 'create'])
+        ->name('register');
+
+    Route::post('register', [RegisteredUserController::class, 'store']);
+
+    Route::get('login', [AuthenticatedSessionController::class, 'create'])
+        ->name('login');
+
+    Route::post('login', [AuthenticatedSessionController::class, 'store']);
+
+    Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
+        ->name('password.request');
+
+    Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])
+        ->name('password.email');
+
+    Route::get('reset-password/{token}', [NewPasswordController::class, 'create'])
+        ->name('password.reset');
+
+    Route::post('reset-password', [NewPasswordController::class, 'store'])
+        ->name('password.store');
+});
 /*
 |--------------------------------------------------------------------------
 | Product Routes (Grouped)
@@ -63,6 +97,7 @@ Route::middleware('auth')->prefix('user')->controller(AccountController::class)-
     Route::get('/account', 'index')->name('user.account'); // User account page
     Route::get('/update-password', 'indexUpdatePassword')->name('user.changePassword')->middleware('auth');
     Route::get('/personal-information', 'personalInformation')->name('user.personalInformation')->middleware('auth');
+    Route::get('/manage-address', 'manageAddress')->name('user.manageAddress')->middleware('auth');
 });
 
 /*

@@ -17,31 +17,25 @@ class UserController extends Controller
     {
         if (Auth::user()) {
             $user = Auth::user();
-            // Redirect to the 'account' route if the user is authenticated  
             return redirect()->route('user.account')->with('user', $user);
-        } else {
-            return view('auth.register');
         }
+        return view('auth.register');
     }
     // Wishlist
     public function userWishlist()
     {
-        // Check if the user is already logged in
         if (Auth::user()) {
             $user = Auth::user();
             return view('pages.wishlist', compact('user'));
         }
-        // If not logged in, show the login form
         return redirect()->route('login');
     }
     // Cart
     public function userCart()
     {
-        // Check if the user is already logged in
         if (Auth::user()) {
             return view('pages.cart');
         }
-        // If not logged in, show the login form
         return redirect()->route('login');
     }
     // Address
@@ -84,17 +78,10 @@ class UserController extends Controller
             'password' => 'required|min:8|confirmed',
         ]);
 
-        // Hash password
         $data['password'] = Hash::make($request->password);
-
-        // Create user and store in Batabase
         $user = User::create($data);
-
-        // Log the user in
         Auth::login($user);
-
-        // Redirect to dashboard
-        return redirect('/account')->with('success', 'Registration successful!');
+        return redirect('user/account')->with('success', 'Registration successful!');
     }
 
     /**
@@ -145,13 +132,13 @@ class UserController extends Controller
             'new_password' => 'required|confirmed|min:8',
         ]);
 
-        $user = Auth::user();
+        $data = Auth::user();
 
         // Check if the old password matches
-        if (!Hash::check($request->old_password, $user->password)) {
+        if (!Hash::check($request->old_password, $data->password)) {
             return back()->with('error', 'Old password is incorrect.');
         }
-
+        $user = User::find($data->id);
         $user->password = Hash::make($request->new_password);
         $user->save();
 

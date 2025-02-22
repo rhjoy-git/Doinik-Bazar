@@ -27,7 +27,7 @@
                             Manage account</a>
                         <a href="{{route('user.personalInformation')}}"
                             class="text-gray-500 duration-100 hover:text-yellow-400">Profile information</a>
-                        <a href="manage-address.html" class="text-gray-500 duration-100 hover:text-yellow-400">Manage
+                        <a href="{{route('user.manageAddress')}}" class="text-gray-500 duration-100 hover:text-yellow-400">Manage
                             Addresses</a>
                         <a href="{{route('user.changePassword')}}"
                             class="text-gray-500 duration-100 hover:text-yellow-400">Change

@@ -1,153 +1,137 @@
 @extends('layouts.masterlayout')
 
 @section('content')
-<!-- Registration Card -->
+<!-- Registration card  -->
 <section class="mx-auto flex-grow w-full mt-10 mb-10 max-w-screen-xl px-5">
-    <div class="container mx-auto border px-5 py-5 shadow-sm md:w-1/2">
+    <div class="container mx-auto border px-7 py-7 md:w-1/2 rounded-2xl shadow">
         <div class="">
-            <p class="text-4xl font-bold">REGISTER</p>
-            <p>Create a new account to get started.</p>
+            <p class="font-inter text-2xl font-semibold">Create an account</p>
         </div>
-
         <!-- Session Status -->
         <x-auth-session-status class="mb-4" :status="session('status')" />
+        <div class="flex flex-col items-center space-y-4 mt-6">
+            <div class="flex space-x-4">
+                <!-- Google Login Button -->
+                <a href="#"
+                    class="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-lg shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                    <img src="{{ asset('resources/images/google.svg') }}" alt="Google G Logo" class="h-5 w-5 mr-2" />
+                    <span>Sign up with Google</span>
+                </a>
 
-        <form method="POST" action="{{ route('register.submit') }}" class="mt-6 flex flex-col">
-            @csrf
-            <!-- First Name -->
-            <label for="first_name">First Name</label>
-            <input id="first_name" class="mb-3 mt-3 border px-4 py-2" type="text" name="first_name"
-                value="{{ old('first_name') }}" required autofocus autocomplete="given-name" />
-            <x-input-error :messages="$errors->get('first_name')" class="mt-2" />
-
-            <!-- Last Name -->
-            <label for="last_name">Last Name</label>
-            <input id="last_name" class="mb-3 mt-3 border px-4 py-2" type="text" name="last_name"
-                value="{{ old('last_name') }}" required autocomplete="family-name" />
-            <x-input-error :messages="$errors->get('last_name')" class="mt-2" />
-
-            <!-- Phone Number -->
-            <label for="phone">Phone Number</label>
-            <input id="phone" class="mb-3 mt-3 border px-4 py-2" type="tel" name="phone" value="{{ old('phone') }}" required
-                autocomplete="tel" />
-            <x-input-error :messages="$errors->get('phone')" class="mt-2" />
-
-            <!-- Date of Birth and Gender (Horizontal on Large Screens) -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <!-- Date of Birth -->
-                <div>
-                    <label for="dob">Date of Birth</label>
-                    <input id="dob" class="w-full mb-3 mt-3 border px-4 py-2" type="date" name="dob" value="{{ old('dob') }}"
-                        required autocomplete="bday" />
-                    <x-input-error :messages="$errors->get('dob')" class="mt-2" />
-                </div>
-
-                <!-- Gender -->
-                <div>
-                    <label for="gender">Gender</label>
-                    <select id="gender" class="w-full mb-3 mt-3 border px-4 py-2" name="gender" required>
-                        <option value="">Select Gender</option>
-                        <option value="male" {{ old('gender')=='male' ? 'selected' : '' }}>Male</option>
-                        <option value="female" {{ old('gender')=='female' ? 'selected' : '' }}>Female</option>
-                        <option value="other" {{ old('gender')=='other' ? 'selected' : '' }}>Other</option>
-                    </select>
-                    <x-input-error :messages="$errors->get('gender')" class="mt-2" />
-                </div>
+                <!-- Apple Login Button -->
+                <a href="#"
+                    class="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-lg shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                    <img src="{{ asset('resources/images/apple.svg') }}" alt="Apple logo"
+                        class="h-5 w-5 mr-2" />
+                    <span>Sign up with Apple</span>
+                </a>
             </div>
 
-            <!-- Country, State, and Postcode (Horizontal on Large Screens) -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <!-- Country -->
-                <div>
-                    <label for="country">Country</label>
-                    <input id="country" class="w-full mb-3 mt-3 border px-4 py-2" type="text" name="country"
-                    value="{{ old('country') }}" required autocomplete="country" />
-                    <x-input-error :messages="$errors->get('country')" class="mt-2" />
-                </div>
+            <!-- Or Separator -->
+            <div class="flex items-center">
+                <span class="text-gray-500 text-sm">----------</span> <!-- Text before "or" -->
+                <hr class="flex-grow border-gray-300 mx-2" />
+                <span class="text-gray-500 text-lg">or</span>
+                <hr class="flex-grow border-gray-300 mx-2" />
+                <span class="text-gray-500 text-sm">----------</span> <!-- Text after "or" -->
+            </div>
+        </div>
+        <div class="font-inter flex flex-col items-center justify-center mx-auto lg:py-0">
+            <div class="w-full bg-white  md:mt-0 sm:max-w-lg xl:p-0  -gray-700">
+                <div class="md:px-2 md:pb-6 md:pt-2 space-y-4 md:space-y-6 sm:p-8 w-full">
+                    <form method="POST" action="{{ route('register.submit') }}" class="space-y-4 md:space-y-6">
+                        @csrf
+                        <div class="flex space-x-4 mt-2">
+                            <div class="flex-1">
+                                <label for="first_name"
+                                    class="block mb-2 text-sm font-medium text-gray-900 ">First
+                                    Name</label>
+                                <input type="text" name="first_name" id="first_name" value="{{ old('first_name') }}"
+                                    required autofocus autocomplete="given-name"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5  -gray-600"
+                                    placeholder="Rakibul Hasan" required>
+                                <x-input-error :messages="$errors->get('first_name')" class="mt-2" />
+                            </div>
 
-                <!-- State -->
-                <div>
-                    <label for="state">State</label>
-                    <input id="state" class="w-full mb-3 mt-3 border px-4 py-2" type="text" name="state"
-                    value="{{ old('state') }}" required autocomplete="address-level1" />
-                    <x-input-error :messages="$errors->get('state')" class="mt-2" />
-                </div>
-
-                <!-- Postcode -->
-                <div>
-                    <label for="postcode">Postcode</label>
-                    <input id="postcode" class="w-full mb-3 mt-3 border px-4 py-2" type="text" name="postcode"
-                    value="{{ old('postcode') }}" required autocomplete="postal-code" />
-                    <x-input-error :messages="$errors->get('postcode')" class="mt-2" />
+                            <div class="flex-1">
+                                <label for="last_name"
+                                    class="block mb-2 text-sm font-medium text-gray-900 ">Last
+                                    Name</label>
+                                <input type="text" name="last_name" id="last_name" value="{{ old('last_name') }}"
+                                    required autocomplete="family-name"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5  -gray-600"
+                                    placeholder="Joy" required>
+                                <x-input-error :messages="$errors->get('last_name')" class="mt-2" />
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 ">Your
+                                email</label>
+                            <input type="email" name="email" id="email" value="{{ old('email') }}" required
+                                autocomplete="email"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5  -gray-600"
+                                placeholder="name@company.com" required>
+                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                        </div>
+                        <div>
+                            <label for="password"
+                                class="block mb-2 text-sm font-medium text-gray-900 ">Password</label>
+                            <div class="relative">
+                                <input id="password" type="password" name="password" required
+                                    autocomplete="new-password" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5  -gray-600"
+                                    required>
+                                <span class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
+                                    onclick="togglePasswordVisibility('password', this)">
+                                    <i class="fas fa-eye" id="eye-icon-password"></i>
+                                </span>
+                            </div>
+                            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                        </div>
+                        <div>
+                            <label for="confirm-password"
+                                class="block mb-2 text-sm font-medium text-gray-900 ">Confirm
+                                password</label>
+                            <div class="relative">
+                                <input id="password_confirmation" type="password" name="password_confirmation" required
+                                    autocomplete="new-password" placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-600 focus:border-blue-600 block w-full p-2.5  -gray-600"
+                                    required>
+                                <span class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
+                                    onclick="togglePasswordVisibility('password', this)">
+                                    <i class="fas fa-eye" id="eye-icon-password"></i>
+                                </span>
+                            </div>
+                            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex items-center h-5">
+                                <input id="terms" aria-describedby="terms" type="checkbox"
+                                    class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300  -gray-600 focus:ring-0 focus:ring-offset-0"
+                                     required>
+                            </div>
+                            <div class="ml-3 text-sm">
+                                <label for="terms"
+                                    class="font-light text-gray-500  focus:ring-0 focus:ring-offset-0">I
+                                    accept the <a class="font-medium text-blue-600 hover:underline "
+                                        href="#">Terms and Conditions</a></label>
+                            </div>
+                        </div>
+                        <button type="submit"
+                            class="w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Create
+                            an account</button>
+                        <p class="text-sm font-light text-gray-500 ">
+                            Already have an account? <a href="{{ route('login') }}"
+                                class="font-medium text-blue-600 hover:underline ">Login
+                                here</a>
+                        </p>
+                    </form>
                 </div>
             </div>
-
-            <!-- Email and Confirm Email (Horizontal on Large Screens) -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <!-- Email -->
-                <div>
-                    <label for="email">Email</label>
-                    <input id="email" class="w-full mb-3 mt-3 border px-4 py-2" type="email" name="email"
-                    value="{{ old('email') }}" required autocomplete="email" />
-                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
-                </div>
-
-                <!-- Confirm Email -->
-                <div>
-                    <label for="email_confirmation">Confirm Email</label>
-                    <input id="email_confirmation" class="w-full mb-3 mt-3 border px-4 py-2" type="email"
-                        name="email_confirmation" required autocomplete="email" />
-                    <x-input-error :messages="$errors->get('email_confirmation')" class="mt-2" />
-                </div>
-            </div>
-
-            <!-- Password and Confirm Password (Horizontal on Large Screens) -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <!-- Password -->
-                <div>
-                    <label for="password">Password</label>
-                    <div class="relative">
-                        <input id="password" class="w-full mt-3 border px-4 py-2" type="password" name="password"
-                            required autocomplete="new-password" />
-                        <span class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
-                            onclick="togglePasswordVisibility('password', this)">
-                            <i class="fas fa-eye" id="eye-icon-password"></i>
-                        </span>
-                    </div>
-                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
-                </div>
-
-                <!-- Confirm Password -->
-                <div>
-                    <label for="password_confirmation">Confirm Password</label>
-                    <div class="relative">
-                        <input id="password_confirmation" class="w-full mt-3 border px-4 py-2" type="password"
-                            name="password_confirmation" required autocomplete="new-password" />
-                        <span class="absolute inset-y-0 right-0 flex items-center pr-3 cursor-pointer"
-                            onclick="togglePasswordVisibility('password_confirmation', this)">
-                            <i class="fas fa-eye" id="eye-icon-confirmation"></i>
-                        </span>
-                    </div>
-                    <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
-                </div>
-            </div>
-
-            <!-- Register Button -->
-            <button type="submit" class="my-5 w-full bg-violet-900 py-2 text-white">
-                REGISTER
-            </button>
-        </form>
-
-        <!-- Login Link -->
-        <p class="text-center">
-            Already have an account?
-            <a href="{{ route('login') }}" class="text-violet-900">Login now</a>
-        </p>
+        </div>
     </div>
 </section>
-<!-- /Registration Card -->
-
-<!-- Toggle Password Visibility Script -->
+<!-- / Registration Card  -->
 <script>
     function togglePasswordVisibility(inputId, iconElement) {
         const passwordInput = document.getElementById(inputId);

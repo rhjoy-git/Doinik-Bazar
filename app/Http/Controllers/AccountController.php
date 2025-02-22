@@ -31,4 +31,10 @@ class AccountController extends Controller
         $user = Auth::user();
         return view('pages.user.profile-informataion', compact('user'));
     }
+    public function manageAddress()
+    {
+        // Get the authenticated user
+        $user = Auth::user();
+        return view('pages.user.manage-address', compact('user'));
+    }
 }
